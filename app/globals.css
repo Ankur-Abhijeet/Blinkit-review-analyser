@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Material 3 Light Theme Palette */
+    --md-sys-color-primary: #006b5c;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #76f8e0;
+    --md-sys-color-on-primary-container: #00201a;
+    
+    --md-sys-color-secondary: #4a635e;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #cce8e2;
+    --md-sys-color-on-secondary-container: #05201c;
+    
+    --md-sys-color-tertiary: #446279;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #cbe6ff;
+    --md-sys-color-on-tertiary-container: #001e30;
+    
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+    
+    --md-sys-color-background: #fafdfb;
+    --md-sys-color-on-background: #191c1b;
+    --md-sys-color-surface: #f7faf8;
+    --md-sys-color-on-surface: #191c1b;
+    --md-sys-color-surface-variant: #dae5e1;
+    --md-sys-color-on-surface-variant: #3f4946;
+    --md-sys-color-outline: #6f7976;
+    
+    --shadow-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    /* Material 3 Dark Theme Palette */
+    --md-sys-color-primary: #55dbc4;
+    --md-sys-color-on-primary: #00372f;
+    --md-sys-color-primary-container: #005045;
+    --md-sys-color-on-primary-container: #76f8e0;
+    
+    --md-sys-color-secondary: #b1ccc6;
+    --md-sys-color-on-secondary: #1c3530;
+    --md-sys-color-secondary-container: #334b46;
+    --md-sys-color-on-secondary-container: #cce8e2;
+    
+    --md-sys-color-tertiary: #accae5;
+    --md-sys-color-on-tertiary: #133348;
+    --md-sys-color-tertiary-container: #2c4a60;
+    --md-sys-color-on-tertiary-container: #cbe6ff;
+    
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffdad6;
+    
+    --md-sys-color-background: #191c1b;
+    --md-sys-color-on-background: #e0e3e1;
+    --md-sys-color-surface: #111413;
+    --md-sys-color-on-surface: #e0e3e1;
+    --md-sys-color-surface-variant: #3f4946;
+    --md-sys-color-on-surface-variant: #bec9c5;
+    --md-sys-color-outline: #899390;
+    
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glassmorphism card utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
 }
+
+.dark .glass-card {
+  background: rgba(25, 28, 27, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-surface-variant);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Print CSS Rules */
+@media print {
+  .demo-badge {
+    background-color: #ffdad6 !important;
+    color: #410002 !important;
+    border: 2px solid #ba1a1a !important;
+    display: block !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print,
+  [data-dashboard-no-print] {
+    display: none !important;
+  }
+
+  /* Force print report container to display with full unclipped height */
+  .full-print-report {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    height: auto !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+

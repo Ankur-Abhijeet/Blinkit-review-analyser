@@ -1,0 +1,1902 @@
+[
+  {
+    "review_id": "100001",
+    "source": "playstore",
+    "text": "Delivery is slow, but I love ordering milk and bread every day on Blinkit.",
+    "rating": 4,
+    "date": "2026-06-21",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100001",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Successful Category Trial",
+      "barrier": "Unclear Exploration Struggle",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Curiosity",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Unclear Repeat-Purchase Cause",
+      "unmet_need": "General Discovery Improvement"
+    }
+  },
+  {
+    "review_id": "100002",
+    "source": "playstore",
+    "text": "Late delivery again, but the fresh produce and veggies range is unmatched.",
+    "rating": 4,
+    "date": "2026-06-22",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100002",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100003",
+    "source": "playstore",
+    "text": "Rider was very late but the quality of groceries and dal was really good.",
+    "rating": 4,
+    "date": "2026-06-23",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100003",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100004",
+    "source": "playstore",
+    "text": "Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",
+    "rating": 4,
+    "date": "2026-06-24",
+    "city": "Delhi",
+    "url": "https://reviews.com/100004",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100005",
+    "source": "playstore",
+    "text": "Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",
+    "rating": 4,
+    "date": "2026-06-10",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100005",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100006",
+    "source": "playstore",
+    "text": "Slow app checkout, but the range of snacks and chips is very nice.",
+    "rating": 4,
+    "date": "2026-06-11",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100006",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100007",
+    "source": "playstore",
+    "text": "Bad customer support for a late refund. But I only use this app to buy organic vegetables.",
+    "rating": 4,
+    "date": "2026-06-12",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100007",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100008",
+    "source": "playstore",
+    "text": "They charged surge fees. Still ordered cold drinks and chips for the party.",
+    "rating": 4,
+    "date": "2026-06-13",
+    "city": "Delhi",
+    "url": "https://reviews.com/100008",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100009",
+    "source": "playstore",
+    "text": "Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",
+    "rating": 4,
+    "date": "2026-06-14",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100009",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100010",
+    "source": "playstore",
+    "text": "Delay in order. But their selection of stationery items is helpful.",
+    "rating": 4,
+    "date": "2026-06-15",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100010",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100011",
+    "source": "playstore",
+    "text": "Delivery is slow, but I love ordering milk and bread every day on Blinkit.",
+    "rating": 4,
+    "date": "2026-06-16",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100011",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Successful Category Trial",
+      "barrier": "Unclear Exploration Struggle",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Curiosity",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Unclear Repeat-Purchase Cause",
+      "unmet_need": "General Discovery Improvement"
+    }
+  },
+  {
+    "review_id": "100012",
+    "source": "playstore",
+    "text": "Late delivery again, but the fresh produce and veggies range is unmatched.",
+    "rating": 4,
+    "date": "2026-06-17",
+    "city": "Delhi",
+    "url": "https://reviews.com/100012",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100013",
+    "source": "playstore",
+    "text": "Rider was very late but the quality of groceries and dal was really good.",
+    "rating": 4,
+    "date": "2026-06-18",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100013",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100014",
+    "source": "playstore",
+    "text": "Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",
+    "rating": 4,
+    "date": "2026-06-19",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100014",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100015",
+    "source": "playstore",
+    "text": "Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",
+    "rating": 4,
+    "date": "2026-06-20",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100015",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100016",
+    "source": "playstore",
+    "text": "Slow app checkout, but the range of snacks and chips is very nice.",
+    "rating": 4,
+    "date": "2026-06-21",
+    "city": "Delhi",
+    "url": "https://reviews.com/100016",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100017",
+    "source": "playstore",
+    "text": "Bad customer support for a late refund. But I only use this app to buy organic vegetables.",
+    "rating": 4,
+    "date": "2026-06-22",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100017",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100018",
+    "source": "playstore",
+    "text": "They charged surge fees. Still ordered cold drinks and chips for the party.",
+    "rating": 4,
+    "date": "2026-06-23",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100018",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100019",
+    "source": "playstore",
+    "text": "Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",
+    "rating": 4,
+    "date": "2026-06-24",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100019",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100020",
+    "source": "playstore",
+    "text": "Delay in order. But their selection of stationery items is helpful.",
+    "rating": 4,
+    "date": "2026-06-10",
+    "city": "Delhi",
+    "url": "https://reviews.com/100020",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100021",
+    "source": "playstore",
+    "text": "Delivery is slow, but I love ordering milk and bread every day on Blinkit.",
+    "rating": 4,
+    "date": "2026-06-11",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100021",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Successful Category Trial",
+      "barrier": "Unclear Exploration Struggle",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Curiosity",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Unclear Repeat-Purchase Cause",
+      "unmet_need": "General Discovery Improvement"
+    }
+  },
+  {
+    "review_id": "100022",
+    "source": "playstore",
+    "text": "Late delivery again, but the fresh produce and veggies range is unmatched.",
+    "rating": 4,
+    "date": "2026-06-12",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100022",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100023",
+    "source": "playstore",
+    "text": "Rider was very late but the quality of groceries and dal was really good.",
+    "rating": 4,
+    "date": "2026-06-13",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100023",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100024",
+    "source": "playstore",
+    "text": "Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",
+    "rating": 4,
+    "date": "2026-06-14",
+    "city": "Delhi",
+    "url": "https://reviews.com/100024",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100025",
+    "source": "playstore",
+    "text": "Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",
+    "rating": 4,
+    "date": "2026-06-15",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100025",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100026",
+    "source": "playstore",
+    "text": "Slow app checkout, but the range of snacks and chips is very nice.",
+    "rating": 4,
+    "date": "2026-06-16",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100026",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100027",
+    "source": "playstore",
+    "text": "Bad customer support for a late refund. But I only use this app to buy organic vegetables.",
+    "rating": 4,
+    "date": "2026-06-17",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100027",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100028",
+    "source": "playstore",
+    "text": "They charged surge fees. Still ordered cold drinks and chips for the party.",
+    "rating": 4,
+    "date": "2026-06-18",
+    "city": "Delhi",
+    "url": "https://reviews.com/100028",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100029",
+    "source": "playstore",
+    "text": "Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",
+    "rating": 4,
+    "date": "2026-06-19",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100029",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100030",
+    "source": "playstore",
+    "text": "Delay in order. But their selection of stationery items is helpful.",
+    "rating": 4,
+    "date": "2026-06-20",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100030",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100031",
+    "source": "playstore",
+    "text": "Delivery is slow, but I love ordering milk and bread every day on Blinkit.",
+    "rating": 4,
+    "date": "2026-06-21",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100031",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Successful Category Trial",
+      "barrier": "Unclear Exploration Struggle",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Curiosity",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Unclear Repeat-Purchase Cause",
+      "unmet_need": "General Discovery Improvement"
+    }
+  },
+  {
+    "review_id": "100032",
+    "source": "playstore",
+    "text": "Late delivery again, but the fresh produce and veggies range is unmatched.",
+    "rating": 4,
+    "date": "2026-06-22",
+    "city": "Delhi",
+    "url": "https://reviews.com/100032",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100033",
+    "source": "playstore",
+    "text": "Rider was very late but the quality of groceries and dal was really good.",
+    "rating": 4,
+    "date": "2026-06-23",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100033",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100034",
+    "source": "playstore",
+    "text": "Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",
+    "rating": 4,
+    "date": "2026-06-24",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100034",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100035",
+    "source": "playstore",
+    "text": "Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",
+    "rating": 4,
+    "date": "2026-06-10",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100035",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100036",
+    "source": "playstore",
+    "text": "Slow app checkout, but the range of snacks and chips is very nice.",
+    "rating": 4,
+    "date": "2026-06-11",
+    "city": "Delhi",
+    "url": "https://reviews.com/100036",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100037",
+    "source": "playstore",
+    "text": "Bad customer support for a late refund. But I only use this app to buy organic vegetables.",
+    "rating": 4,
+    "date": "2026-06-12",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100037",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100038",
+    "source": "playstore",
+    "text": "They charged surge fees. Still ordered cold drinks and chips for the party.",
+    "rating": 4,
+    "date": "2026-06-13",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100038",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100039",
+    "source": "playstore",
+    "text": "Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",
+    "rating": 4,
+    "date": "2026-06-14",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100039",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100040",
+    "source": "playstore",
+    "text": "Delay in order. But their selection of stationery items is helpful.",
+    "rating": 4,
+    "date": "2026-06-15",
+    "city": "Delhi",
+    "url": "https://reviews.com/100040",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100041",
+    "source": "appstore",
+    "text": "Delivery is extremely slow. Terrible service!",
+    "rating": 1,
+    "date": "2026-06-16",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100041",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100042",
+    "source": "appstore",
+    "text": "Rider was rude and order was missing items.",
+    "rating": 1,
+    "date": "2026-06-17",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100042",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100043",
+    "source": "appstore",
+    "text": "Refund is still pending. Customer support is useless.",
+    "rating": 1,
+    "date": "2026-06-18",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100043",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100044",
+    "source": "appstore",
+    "text": "App keeps crashing during payment. Very frustrated.",
+    "rating": 1,
+    "date": "2026-06-19",
+    "city": "Delhi",
+    "url": "https://reviews.com/100044",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100045",
+    "source": "appstore",
+    "text": "Surge fees and handling charges are too high on Blinkit.",
+    "rating": 1,
+    "date": "2026-06-20",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100045",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100046",
+    "source": "appstore",
+    "text": "Worst app, rider took 1 hour to deliver groceries.",
+    "rating": 1,
+    "date": "2026-06-21",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100046",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100047",
+    "source": "appstore",
+    "text": "Payment failed but money got deducted from my bank account.",
+    "rating": 1,
+    "date": "2026-06-22",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100047",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100048",
+    "source": "appstore",
+    "text": "Highly priced delivery charges. Not using this app anymore.",
+    "rating": 1,
+    "date": "2026-06-23",
+    "city": "Delhi",
+    "url": "https://reviews.com/100048",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100049",
+    "source": "appstore",
+    "text": "Terrible experience. Refund not credited yet.",
+    "rating": 1,
+    "date": "2026-06-24",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100049",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100050",
+    "source": "appstore",
+    "text": "App hung on the checkout screen. Buggy update.",
+    "rating": 1,
+    "date": "2026-06-10",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100050",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100051",
+    "source": "appstore",
+    "text": "Delivery is extremely slow. Terrible service!",
+    "rating": 1,
+    "date": "2026-06-11",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100051",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100052",
+    "source": "appstore",
+    "text": "Rider was rude and order was missing items.",
+    "rating": 1,
+    "date": "2026-06-12",
+    "city": "Delhi",
+    "url": "https://reviews.com/100052",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100053",
+    "source": "appstore",
+    "text": "Refund is still pending. Customer support is useless.",
+    "rating": 1,
+    "date": "2026-06-13",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100053",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100054",
+    "source": "appstore",
+    "text": "App keeps crashing during payment. Very frustrated.",
+    "rating": 1,
+    "date": "2026-06-14",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100054",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100055",
+    "source": "appstore",
+    "text": "Surge fees and handling charges are too high on Blinkit.",
+    "rating": 1,
+    "date": "2026-06-15",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100055",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100056",
+    "source": "appstore",
+    "text": "Worst app, rider took 1 hour to deliver groceries.",
+    "rating": 1,
+    "date": "2026-06-16",
+    "city": "Delhi",
+    "url": "https://reviews.com/100056",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100057",
+    "source": "appstore",
+    "text": "Payment failed but money got deducted from my bank account.",
+    "rating": 1,
+    "date": "2026-06-17",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100057",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100058",
+    "source": "appstore",
+    "text": "Highly priced delivery charges. Not using this app anymore.",
+    "rating": 1,
+    "date": "2026-06-18",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100058",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100059",
+    "source": "appstore",
+    "text": "Terrible experience. Refund not credited yet.",
+    "rating": 1,
+    "date": "2026-06-19",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100059",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100060",
+    "source": "appstore",
+    "text": "App hung on the checkout screen. Buggy update.",
+    "rating": 1,
+    "date": "2026-06-20",
+    "city": "Delhi",
+    "url": "https://reviews.com/100060",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100061",
+    "source": "appstore",
+    "text": "Delivery is extremely slow. Terrible service!",
+    "rating": 1,
+    "date": "2026-06-21",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100061",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100062",
+    "source": "appstore",
+    "text": "Rider was rude and order was missing items.",
+    "rating": 1,
+    "date": "2026-06-22",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100062",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100063",
+    "source": "appstore",
+    "text": "Refund is still pending. Customer support is useless.",
+    "rating": 1,
+    "date": "2026-06-23",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100063",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100064",
+    "source": "appstore",
+    "text": "App keeps crashing during payment. Very frustrated.",
+    "rating": 1,
+    "date": "2026-06-24",
+    "city": "Delhi",
+    "url": "https://reviews.com/100064",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100065",
+    "source": "appstore",
+    "text": "Surge fees and handling charges are too high on Blinkit.",
+    "rating": 1,
+    "date": "2026-06-10",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100065",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100066",
+    "source": "appstore",
+    "text": "Worst app, rider took 1 hour to deliver groceries.",
+    "rating": 1,
+    "date": "2026-06-11",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100066",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100067",
+    "source": "appstore",
+    "text": "Payment failed but money got deducted from my bank account.",
+    "rating": 1,
+    "date": "2026-06-12",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100067",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100068",
+    "source": "appstore",
+    "text": "Highly priced delivery charges. Not using this app anymore.",
+    "rating": 1,
+    "date": "2026-06-13",
+    "city": "Delhi",
+    "url": "https://reviews.com/100068",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100069",
+    "source": "appstore",
+    "text": "Terrible experience. Refund not credited yet.",
+    "rating": 1,
+    "date": "2026-06-14",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100069",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100070",
+    "source": "appstore",
+    "text": "App hung on the checkout screen. Buggy update.",
+    "rating": 1,
+    "date": "2026-06-15",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100070",
+    "gold_labels": {
+      "exploration_relevant": false,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100071",
+    "source": "reddit",
+    "text": "Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",
+    "rating": 3,
+    "date": "2026-06-16",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100071",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100072",
+    "source": "reddit",
+    "text": "Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",
+    "rating": 3,
+    "date": "2026-06-17",
+    "city": "Delhi",
+    "url": "https://reviews.com/100072",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100073",
+    "source": "reddit",
+    "text": "Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",
+    "rating": 3,
+    "date": "2026-06-18",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100073",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100074",
+    "source": "reddit",
+    "text": "Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",
+    "rating": 3,
+    "date": "2026-06-19",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100074",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100075",
+    "source": "reddit",
+    "text": "Dog food and cat items ki category awareness is very low, hidden inside menu.",
+    "rating": 3,
+    "date": "2026-06-20",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100075",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100076",
+    "source": "reddit",
+    "text": "No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",
+    "rating": 3,
+    "date": "2026-06-21",
+    "city": "Delhi",
+    "url": "https://reviews.com/100076",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100077",
+    "source": "reddit",
+    "text": "Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",
+    "rating": 3,
+    "date": "2026-06-22",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100077",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100078",
+    "source": "reddit",
+    "text": "Recommended recommendations same items repeat karti rehti hain, nothing new.",
+    "rating": 3,
+    "date": "2026-06-23",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100078",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100079",
+    "source": "reddit",
+    "text": "Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",
+    "rating": 3,
+    "date": "2026-06-24",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100079",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100080",
+    "source": "reddit",
+    "text": "Search only shopping karta hu, cannot discover new items on home feed.",
+    "rating": 3,
+    "date": "2026-06-10",
+    "city": "Delhi",
+    "url": "https://reviews.com/100080",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100081",
+    "source": "reddit",
+    "text": "Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",
+    "rating": 3,
+    "date": "2026-06-11",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100081",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100082",
+    "source": "reddit",
+    "text": "Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",
+    "rating": 3,
+    "date": "2026-06-12",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100082",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100083",
+    "source": "reddit",
+    "text": "Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",
+    "rating": 3,
+    "date": "2026-06-13",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100083",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100084",
+    "source": "reddit",
+    "text": "Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",
+    "rating": 3,
+    "date": "2026-06-14",
+    "city": "Delhi",
+    "url": "https://reviews.com/100084",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100085",
+    "source": "reddit",
+    "text": "Dog food and cat items ki category awareness is very low, hidden inside menu.",
+    "rating": 3,
+    "date": "2026-06-15",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100085",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100086",
+    "source": "reddit",
+    "text": "No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",
+    "rating": 3,
+    "date": "2026-06-16",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100086",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100087",
+    "source": "reddit",
+    "text": "Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",
+    "rating": 3,
+    "date": "2026-06-17",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100087",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100088",
+    "source": "reddit",
+    "text": "Recommended recommendations same items repeat karti rehti hain, nothing new.",
+    "rating": 3,
+    "date": "2026-06-18",
+    "city": "Delhi",
+    "url": "https://reviews.com/100088",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100089",
+    "source": "reddit",
+    "text": "Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",
+    "rating": 3,
+    "date": "2026-06-19",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100089",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100090",
+    "source": "reddit",
+    "text": "Search only shopping karta hu, cannot discover new items on home feed.",
+    "rating": 3,
+    "date": "2026-06-20",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100090",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100091",
+    "source": "reddit",
+    "text": "Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",
+    "rating": 3,
+    "date": "2026-06-21",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100091",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100092",
+    "source": "reddit",
+    "text": "Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",
+    "rating": 3,
+    "date": "2026-06-22",
+    "city": "Delhi",
+    "url": "https://reviews.com/100092",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100093",
+    "source": "reddit",
+    "text": "Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",
+    "rating": 3,
+    "date": "2026-06-23",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100093",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100094",
+    "source": "reddit",
+    "text": "Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",
+    "rating": 3,
+    "date": "2026-06-24",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100094",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100095",
+    "source": "reddit",
+    "text": "Dog food and cat items ki category awareness is very low, hidden inside menu.",
+    "rating": 3,
+    "date": "2026-06-10",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100095",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100096",
+    "source": "reddit",
+    "text": "No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",
+    "rating": 3,
+    "date": "2026-06-11",
+    "city": "Delhi",
+    "url": "https://reviews.com/100096",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100097",
+    "source": "reddit",
+    "text": "Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",
+    "rating": 3,
+    "date": "2026-06-12",
+    "city": "Mumbai",
+    "url": "https://reviews.com/100097",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100098",
+    "source": "reddit",
+    "text": "Recommended recommendations same items repeat karti rehti hain, nothing new.",
+    "rating": 3,
+    "date": "2026-06-13",
+    "city": "Bangalore",
+    "url": "https://reviews.com/100098",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100099",
+    "source": "reddit",
+    "text": "Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",
+    "rating": 3,
+    "date": "2026-06-14",
+    "city": "Gurugram",
+    "url": "https://reviews.com/100099",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  },
+  {
+    "review_id": "100100",
+    "source": "reddit",
+    "text": "Search only shopping karta hu, cannot discover new items on home feed.",
+    "rating": 3,
+    "date": "2026-06-15",
+    "city": "Delhi",
+    "url": "https://reviews.com/100100",
+    "gold_labels": {
+      "exploration_relevant": true,
+      "theme": "Basket Habit Lock-In",
+      "barrier": "Reorder Shortcut Dominance",
+      "behavior": "Reorder Previous Basket",
+      "emotion": "Frustration",
+      "segment": "Habitual Replenisher",
+      "root_cause": "Reorder-Surface Dominance",
+      "unmet_need": "Trial-Sized First Purchase"
+    }
+  }
+]

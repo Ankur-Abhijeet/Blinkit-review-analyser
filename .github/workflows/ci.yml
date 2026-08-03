@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test -- --run
+      - run: npm run build
+      # Guard: no eslint-disable on the restricted-paths rule (EC-P0-09)
+      - name: No import-rule disables
+        run: |
+          if grep -rn 'eslint-disable.*import/no-restricted-paths' --include='*.ts' --include='*.tsx' --include='*.mjs' app/ lib/ components/ eslint.config.mjs; then
+            echo "::error::Found eslint-disable on import/no-restricted-paths — this rule is non-disablable"
+            exit 1
+          fi

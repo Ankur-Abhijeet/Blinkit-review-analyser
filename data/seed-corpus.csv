@@ -1,0 +1,301 @@
+source,text,rating,date,city,url,review_id
+playstore,"Delivery is slow, but I love ordering milk and bread every day on Blinkit.",4,2026-06-21,Mumbai,https://reviews.com/100001,100001
+playstore,"Late delivery again, but the fresh produce and veggies range is unmatched.",4,2026-06-22,Bangalore,https://reviews.com/100002,100002
+playstore,"Rider was very late but the quality of groceries and dal was really good.",4,2026-06-23,Gurugram,https://reviews.com/100003,100003
+playstore,"Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",4,2026-06-24,Delhi,https://reviews.com/100004,100004
+playstore,"Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",4,2026-06-10,Mumbai,https://reviews.com/100005,100005
+playstore,"Slow app checkout, but the range of snacks and chips is very nice.",4,2026-06-11,Bangalore,https://reviews.com/100006,100006
+playstore,"Bad customer support for a late refund. But I only use this app to buy organic vegetables.",4,2026-06-12,Gurugram,https://reviews.com/100007,100007
+playstore,"They charged surge fees. Still ordered cold drinks and chips for the party.",4,2026-06-13,Delhi,https://reviews.com/100008,100008
+playstore,"Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",4,2026-06-14,Mumbai,https://reviews.com/100009,100009
+playstore,"Delay in order. But their selection of stationery items is helpful.",4,2026-06-15,Bangalore,https://reviews.com/100010,100010
+playstore,"Delivery is slow, but I love ordering milk and bread every day on Blinkit.",4,2026-06-16,Gurugram,https://reviews.com/100011,100011
+playstore,"Late delivery again, but the fresh produce and veggies range is unmatched.",4,2026-06-17,Delhi,https://reviews.com/100012,100012
+playstore,"Rider was very late but the quality of groceries and dal was really good.",4,2026-06-18,Mumbai,https://reviews.com/100013,100013
+playstore,"Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",4,2026-06-19,Bangalore,https://reviews.com/100014,100014
+playstore,"Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",4,2026-06-20,Gurugram,https://reviews.com/100015,100015
+playstore,"Slow app checkout, but the range of snacks and chips is very nice.",4,2026-06-21,Delhi,https://reviews.com/100016,100016
+playstore,"Bad customer support for a late refund. But I only use this app to buy organic vegetables.",4,2026-06-22,Mumbai,https://reviews.com/100017,100017
+playstore,"They charged surge fees. Still ordered cold drinks and chips for the party.",4,2026-06-23,Bangalore,https://reviews.com/100018,100018
+playstore,"Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",4,2026-06-24,Gurugram,https://reviews.com/100019,100019
+playstore,"Delay in order. But their selection of stationery items is helpful.",4,2026-06-10,Delhi,https://reviews.com/100020,100020
+playstore,"Delivery is slow, but I love ordering milk and bread every day on Blinkit.",4,2026-06-11,Mumbai,https://reviews.com/100021,100021
+playstore,"Late delivery again, but the fresh produce and veggies range is unmatched.",4,2026-06-12,Bangalore,https://reviews.com/100022,100022
+playstore,"Rider was very late but the quality of groceries and dal was really good.",4,2026-06-13,Gurugram,https://reviews.com/100023,100023
+playstore,"Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",4,2026-06-14,Delhi,https://reviews.com/100024,100024
+playstore,"Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",4,2026-06-15,Mumbai,https://reviews.com/100025,100025
+playstore,"Slow app checkout, but the range of snacks and chips is very nice.",4,2026-06-16,Bangalore,https://reviews.com/100026,100026
+playstore,"Bad customer support for a late refund. But I only use this app to buy organic vegetables.",4,2026-06-17,Gurugram,https://reviews.com/100027,100027
+playstore,"They charged surge fees. Still ordered cold drinks and chips for the party.",4,2026-06-18,Delhi,https://reviews.com/100028,100028
+playstore,"Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",4,2026-06-19,Mumbai,https://reviews.com/100029,100029
+playstore,"Delay in order. But their selection of stationery items is helpful.",4,2026-06-20,Bangalore,https://reviews.com/100030,100030
+playstore,"Delivery is slow, but I love ordering milk and bread every day on Blinkit.",4,2026-06-21,Gurugram,https://reviews.com/100031,100031
+playstore,"Late delivery again, but the fresh produce and veggies range is unmatched.",4,2026-06-22,Delhi,https://reviews.com/100032,100032
+playstore,"Rider was very late but the quality of groceries and dal was really good.",4,2026-06-23,Mumbai,https://reviews.com/100033,100033
+playstore,"Blinkit delivery took 30 mins instead of 10. But at least they have dog food in stock.",4,2026-06-24,Bangalore,https://reviews.com/100034,100034
+playstore,"Rider boy misbehaved. But I got my baby diapers on time so okay I guess.",4,2026-06-10,Gurugram,https://reviews.com/100035,100035
+playstore,"Slow app checkout, but the range of snacks and chips is very nice.",4,2026-06-11,Delhi,https://reviews.com/100036,100036
+playstore,"Bad customer support for a late refund. But I only use this app to buy organic vegetables.",4,2026-06-12,Mumbai,https://reviews.com/100037,100037
+playstore,"They charged surge fees. Still ordered cold drinks and chips for the party.",4,2026-06-13,Bangalore,https://reviews.com/100038,100038
+playstore,"Surge fee is high. But where else will I get shampoo and toothpaste in 10 mins?",4,2026-06-14,Gurugram,https://reviews.com/100039,100039
+playstore,"Delay in order. But their selection of stationery items is helpful.",4,2026-06-15,Delhi,https://reviews.com/100040,100040
+appstore,"Delivery is extremely slow. Terrible service!",1,2026-06-16,Mumbai,https://reviews.com/100041,100041
+appstore,"Rider was rude and order was missing items.",1,2026-06-17,Bangalore,https://reviews.com/100042,100042
+appstore,"Refund is still pending. Customer support is useless.",1,2026-06-18,Gurugram,https://reviews.com/100043,100043
+appstore,"App keeps crashing during payment. Very frustrated.",1,2026-06-19,Delhi,https://reviews.com/100044,100044
+appstore,"Surge fees and handling charges are too high on Blinkit.",1,2026-06-20,Mumbai,https://reviews.com/100045,100045
+appstore,"Worst app, rider took 1 hour to deliver groceries.",1,2026-06-21,Bangalore,https://reviews.com/100046,100046
+appstore,"Payment failed but money got deducted from my bank account.",1,2026-06-22,Gurugram,https://reviews.com/100047,100047
+appstore,"Highly priced delivery charges. Not using this app anymore.",1,2026-06-23,Delhi,https://reviews.com/100048,100048
+appstore,"Terrible experience. Refund not credited yet.",1,2026-06-24,Mumbai,https://reviews.com/100049,100049
+appstore,"App hung on the checkout screen. Buggy update.",1,2026-06-10,Bangalore,https://reviews.com/100050,100050
+appstore,"Delivery is extremely slow. Terrible service!",1,2026-06-11,Gurugram,https://reviews.com/100051,100051
+appstore,"Rider was rude and order was missing items.",1,2026-06-12,Delhi,https://reviews.com/100052,100052
+appstore,"Refund is still pending. Customer support is useless.",1,2026-06-13,Mumbai,https://reviews.com/100053,100053
+appstore,"App keeps crashing during payment. Very frustrated.",1,2026-06-14,Bangalore,https://reviews.com/100054,100054
+appstore,"Surge fees and handling charges are too high on Blinkit.",1,2026-06-15,Gurugram,https://reviews.com/100055,100055
+appstore,"Worst app, rider took 1 hour to deliver groceries.",1,2026-06-16,Delhi,https://reviews.com/100056,100056
+appstore,"Payment failed but money got deducted from my bank account.",1,2026-06-17,Mumbai,https://reviews.com/100057,100057
+appstore,"Highly priced delivery charges. Not using this app anymore.",1,2026-06-18,Bangalore,https://reviews.com/100058,100058
+appstore,"Terrible experience. Refund not credited yet.",1,2026-06-19,Gurugram,https://reviews.com/100059,100059
+appstore,"App hung on the checkout screen. Buggy update.",1,2026-06-20,Delhi,https://reviews.com/100060,100060
+appstore,"Delivery is extremely slow. Terrible service!",1,2026-06-21,Mumbai,https://reviews.com/100061,100061
+appstore,"Rider was rude and order was missing items.",1,2026-06-22,Bangalore,https://reviews.com/100062,100062
+appstore,"Refund is still pending. Customer support is useless.",1,2026-06-23,Gurugram,https://reviews.com/100063,100063
+appstore,"App keeps crashing during payment. Very frustrated.",1,2026-06-24,Delhi,https://reviews.com/100064,100064
+appstore,"Surge fees and handling charges are too high on Blinkit.",1,2026-06-10,Mumbai,https://reviews.com/100065,100065
+appstore,"Worst app, rider took 1 hour to deliver groceries.",1,2026-06-11,Bangalore,https://reviews.com/100066,100066
+appstore,"Payment failed but money got deducted from my bank account.",1,2026-06-12,Gurugram,https://reviews.com/100067,100067
+appstore,"Highly priced delivery charges. Not using this app anymore.",1,2026-06-13,Delhi,https://reviews.com/100068,100068
+appstore,"Terrible experience. Refund not credited yet.",1,2026-06-14,Mumbai,https://reviews.com/100069,100069
+appstore,"App hung on the checkout screen. Buggy update.",1,2026-06-15,Bangalore,https://reviews.com/100070,100070
+reddit,"Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",3,2026-06-16,Gurugram,https://reviews.com/100071,100071
+reddit,"Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",3,2026-06-17,Delhi,https://reviews.com/100072,100072
+reddit,"Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",3,2026-06-18,Mumbai,https://reviews.com/100073,100073
+reddit,"Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",3,2026-06-19,Bangalore,https://reviews.com/100074,100074
+reddit,"Dog food and cat items ki category awareness is very low, hidden inside menu.",3,2026-06-20,Gurugram,https://reviews.com/100075,100075
+reddit,"No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",3,2026-06-21,Delhi,https://reviews.com/100076,100076
+reddit,"Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",3,2026-06-22,Mumbai,https://reviews.com/100077,100077
+reddit,"Recommended recommendations same items repeat karti rehti hain, nothing new.",3,2026-06-23,Bangalore,https://reviews.com/100078,100078
+reddit,"Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",3,2026-06-24,Gurugram,https://reviews.com/100079,100079
+reddit,"Search only shopping karta hu, cannot discover new items on home feed.",3,2026-06-10,Delhi,https://reviews.com/100080,100080
+reddit,"Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",3,2026-06-11,Mumbai,https://reviews.com/100081,100081
+reddit,"Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",3,2026-06-12,Bangalore,https://reviews.com/100082,100082
+reddit,"Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",3,2026-06-13,Gurugram,https://reviews.com/100083,100083
+reddit,"Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",3,2026-06-14,Delhi,https://reviews.com/100084,100084
+reddit,"Dog food and cat items ki category awareness is very low, hidden inside menu.",3,2026-06-15,Mumbai,https://reviews.com/100085,100085
+reddit,"No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",3,2026-06-16,Bangalore,https://reviews.com/100086,100086
+reddit,"Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",3,2026-06-17,Gurugram,https://reviews.com/100087,100087
+reddit,"Recommended recommendations same items repeat karti rehti hain, nothing new.",3,2026-06-18,Delhi,https://reviews.com/100088,100088
+reddit,"Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",3,2026-06-19,Mumbai,https://reviews.com/100089,100089
+reddit,"Search only shopping karta hu, cannot discover new items on home feed.",3,2026-06-20,Bangalore,https://reviews.com/100090,100090
+reddit,"Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",3,2026-06-21,Gurugram,https://reviews.com/100091,100091
+reddit,"Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",3,2026-06-22,Delhi,https://reviews.com/100092,100092
+reddit,"Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",3,2026-06-23,Mumbai,https://reviews.com/100093,100093
+reddit,"Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",3,2026-06-24,Bangalore,https://reviews.com/100094,100094
+reddit,"Dog food and cat items ki category awareness is very low, hidden inside menu.",3,2026-06-10,Gurugram,https://reviews.com/100095,100095
+reddit,"No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",3,2026-06-11,Delhi,https://reviews.com/100096,100096
+reddit,"Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",3,2026-06-12,Mumbai,https://reviews.com/100097,100097
+reddit,"Recommended recommendations same items repeat karti rehti hain, nothing new.",3,2026-06-13,Bangalore,https://reviews.com/100098,100098
+reddit,"Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",3,2026-06-14,Gurugram,https://reviews.com/100099,100099
+reddit,"Search only shopping karta hu, cannot discover new items on home feed.",3,2026-06-15,Delhi,https://reviews.com/100100,100100
+reddit,"Blinkit par select category options search karna padta hai, front page par tiles hidden hain.",3,2026-06-16,Mumbai,https://reviews.com/100101,100101
+reddit,"Mujhe to same basket reorder ki habit ho gayi hai, never scroll past the buy again rail.",3,2026-06-17,Bangalore,https://reviews.com/100102,100102
+reddit,"Aisle structures are so confusing, normal items ko explore karne me difficulty hoti hai.",3,2026-06-18,Gurugram,https://reviews.com/100103,100103
+reddit,"Price compare karne dusre apps par jana padta hai, direct pricing clear nahi hai.",3,2026-06-19,Delhi,https://reviews.com/100104,100104
+reddit,"Dog food and cat items ki category awareness is very low, hidden inside menu.",3,2026-06-20,Mumbai,https://reviews.com/100105,100105
+reddit,"No low risk trial items. Bada pack hi milta hai snacks me, small trial packs hone chahiye.",3,2026-06-21,Bangalore,https://reviews.com/100106,100106
+reddit,"Fresh fruits or vegetables quality ka risk nahi le sakte, no freshness date or details.",3,2026-06-22,Gurugram,https://reviews.com/100107,100107
+reddit,"Recommended recommendations same items repeat karti rehti hain, nothing new.",3,2026-06-23,Delhi,https://reviews.com/100108,100108
+reddit,"Sirf reorder previous basket rail highlight hoti hai, which blocks category trial.",3,2026-06-24,Mumbai,https://reviews.com/100109,100109
+reddit,"Search only shopping karta hu, cannot discover new items on home feed.",3,2026-06-10,Bangalore,https://reviews.com/100110,100110
+forums,"Zepto has a better fresh produce range, Blinkit is mostly out of stock.",2,2026-06-11,Gurugram,https://reviews.com/100111,100111
+forums,"Instamart offers cheaper prices for snacks, I compare before placing the order.",2,2026-06-12,Delhi,https://reviews.com/100112,100112
+forums,"Swiggy Instamart has a much wider pet supplies selection than Blinkit.",2,2026-06-13,Mumbai,https://reviews.com/100113,100113
+forums,"I use Bigbasket for weekly groceries, and only use Blinkit for emergencies.",2,2026-06-14,Bangalore,https://reviews.com/100114,100114
+forums,"Zepto delivery speed is faster, but Blinkit has a better household cleaning range.",2,2026-06-15,Gurugram,https://reviews.com/100115,100115
+forums,"Instamart recommendations are more relevant than Blinkit same items reorder loop.",2,2026-06-16,Delhi,https://reviews.com/100116,100116
+forums,"Comparing price with Zepto every time, Blinkit has high surge fee.",2,2026-06-17,Mumbai,https://reviews.com/100117,100117
+forums,"Swiggy offers discounts on dairy, so I buy curd and cheese there.",2,2026-06-18,Bangalore,https://reviews.com/100118,100118
+forums,"I order cosmetics from Nykaa because Blinkit non-grocery trust is low.",2,2026-06-19,Gurugram,https://reviews.com/100119,100119
+forums,"Blinkit is okay but Zepto has better fruits selection and quality details.",2,2026-06-20,Delhi,https://reviews.com/100120,100120
+forums,"Zepto has a better fresh produce range, Blinkit is mostly out of stock.",2,2026-06-21,Mumbai,https://reviews.com/100121,100121
+forums,"Instamart offers cheaper prices for snacks, I compare before placing the order.",2,2026-06-22,Bangalore,https://reviews.com/100122,100122
+forums,"Swiggy Instamart has a much wider pet supplies selection than Blinkit.",2,2026-06-23,Gurugram,https://reviews.com/100123,100123
+forums,"I use Bigbasket for weekly groceries, and only use Blinkit for emergencies.",2,2026-06-24,Delhi,https://reviews.com/100124,100124
+forums,"Zepto delivery speed is faster, but Blinkit has a better household cleaning range.",2,2026-06-10,Mumbai,https://reviews.com/100125,100125
+forums,"Instamart recommendations are more relevant than Blinkit same items reorder loop.",2,2026-06-11,Bangalore,https://reviews.com/100126,100126
+forums,"Comparing price with Zepto every time, Blinkit has high surge fee.",2,2026-06-12,Gurugram,https://reviews.com/100127,100127
+forums,"Swiggy offers discounts on dairy, so I buy curd and cheese there.",2,2026-06-13,Delhi,https://reviews.com/100128,100128
+forums,"I order cosmetics from Nykaa because Blinkit non-grocery trust is low.",2,2026-06-14,Mumbai,https://reviews.com/100129,100129
+forums,"Blinkit is okay but Zepto has better fruits selection and quality details.",2,2026-06-15,Bangalore,https://reviews.com/100130,100130
+forums,"Zepto has a better fresh produce range, Blinkit is mostly out of stock.",2,2026-06-16,Gurugram,https://reviews.com/100131,100131
+forums,"Instamart offers cheaper prices for snacks, I compare before placing the order.",2,2026-06-17,Delhi,https://reviews.com/100132,100132
+forums,"Swiggy Instamart has a much wider pet supplies selection than Blinkit.",2,2026-06-18,Mumbai,https://reviews.com/100133,100133
+forums,"I use Bigbasket for weekly groceries, and only use Blinkit for emergencies.",2,2026-06-19,Bangalore,https://reviews.com/100134,100134
+forums,"Zepto delivery speed is faster, but Blinkit has a better household cleaning range.",2,2026-06-20,Gurugram,https://reviews.com/100135,100135
+forums,"Instamart recommendations are more relevant than Blinkit same items reorder loop.",2,2026-06-21,Delhi,https://reviews.com/100136,100136
+forums,"Comparing price with Zepto every time, Blinkit has high surge fee.",2,2026-06-22,Mumbai,https://reviews.com/100137,100137
+forums,"Swiggy offers discounts on dairy, so I buy curd and cheese there.",2,2026-06-23,Bangalore,https://reviews.com/100138,100138
+forums,"I order cosmetics from Nykaa because Blinkit non-grocery trust is low.",2,2026-06-24,Gurugram,https://reviews.com/100139,100139
+forums,"Blinkit is okay but Zepto has better fruits selection and quality details.",2,2026-06-10,Delhi,https://reviews.com/100140,100140
+social,"The carpet cleaner was not delivered.",3,2026-06-11,Mumbai,https://reviews.com/100141,100141
+social,"I tried to communicate with the rider boy.",3,2026-06-12,Bangalore,https://reviews.com/100142,100142
+social,"Which category is this issue under?",3,2026-06-13,Gurugram,https://reviews.com/100143,100143
+social,"I bought an orange juice bottle.",3,2026-06-14,Delhi,https://reviews.com/100144,100144
+social,"Please refresh the app and try.",3,2026-06-15,Mumbai,https://reviews.com/100145,100145
+social,"High competition in delivery times.",3,2026-06-16,Bangalore,https://reviews.com/100146,100146
+social,"Nearest petrol pump is closed.",3,2026-06-17,Gurugram,https://reviews.com/100147,100147
+social,"Delicate fabric care instruction is missing.",3,2026-06-18,Delhi,https://reviews.com/100148,100148
+social,"The carpet cleaner was not delivered.",3,2026-06-19,Mumbai,https://reviews.com/100149,100149
+social,"I tried to communicate with the rider boy.",3,2026-06-20,Bangalore,https://reviews.com/100150,100150
+social,"Which category is this issue under?",3,2026-06-21,Gurugram,https://reviews.com/100151,100151
+social,"I bought an orange juice bottle.",3,2026-06-22,Delhi,https://reviews.com/100152,100152
+social,"Please refresh the app and try.",3,2026-06-23,Mumbai,https://reviews.com/100153,100153
+social,"High competition in delivery times.",3,2026-06-24,Bangalore,https://reviews.com/100154,100154
+social,"Nearest petrol pump is closed.",3,2026-06-10,Gurugram,https://reviews.com/100155,100155
+social,"Delicate fabric care instruction is missing.",3,2026-06-11,Delhi,https://reviews.com/100156,100156
+social,"The carpet cleaner was not delivered.",3,2026-06-12,Mumbai,https://reviews.com/100157,100157
+social,"I tried to communicate with the rider boy.",3,2026-06-13,Bangalore,https://reviews.com/100158,100158
+social,"Which category is this issue under?",3,2026-06-14,Gurugram,https://reviews.com/100159,100159
+social,"I bought an orange juice bottle.",3,2026-06-15,Delhi,https://reviews.com/100160,100160
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-16,Mumbai,https://reviews.com/100161,100161
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-17,Bangalore,https://reviews.com/100162,100162
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-18,Gurugram,https://reviews.com/100163,100163
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-19,Delhi,https://reviews.com/100164,100164
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-20,Mumbai,https://reviews.com/100165,100165
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-21,Bangalore,https://reviews.com/100166,100166
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-22,Gurugram,https://reviews.com/100167,100167
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-23,Delhi,https://reviews.com/100168,100168
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-24,Mumbai,https://reviews.com/100169,100169
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-10,Bangalore,https://reviews.com/100170,100170
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-11,Gurugram,https://reviews.com/100171,100171
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-12,Delhi,https://reviews.com/100172,100172
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-13,Mumbai,https://reviews.com/100173,100173
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-14,Bangalore,https://reviews.com/100174,100174
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-15,Gurugram,https://reviews.com/100175,100175
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-16,Delhi,https://reviews.com/100176,100176
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-17,Mumbai,https://reviews.com/100177,100177
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-18,Bangalore,https://reviews.com/100178,100178
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-19,Gurugram,https://reviews.com/100179,100179
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-20,Delhi,https://reviews.com/100180,100180
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-21,Mumbai,https://reviews.com/100181,100181
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-22,Bangalore,https://reviews.com/100182,100182
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-23,Gurugram,https://reviews.com/100183,100183
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-24,Delhi,https://reviews.com/100184,100184
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-10,Mumbai,https://reviews.com/100185,100185
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-11,Bangalore,https://reviews.com/100186,100186
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-12,Gurugram,https://reviews.com/100187,100187
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-13,Delhi,https://reviews.com/100188,100188
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-14,Mumbai,https://reviews.com/100189,100189
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-15,Bangalore,https://reviews.com/100190,100190
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-16,Gurugram,https://reviews.com/100191,100191
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-17,Delhi,https://reviews.com/100192,100192
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-18,Mumbai,https://reviews.com/100193,100193
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-19,Bangalore,https://reviews.com/100194,100194
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-20,Gurugram,https://reviews.com/100195,100195
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-21,Delhi,https://reviews.com/100196,100196
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-22,Mumbai,https://reviews.com/100197,100197
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-23,Bangalore,https://reviews.com/100198,100198
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-24,Gurugram,https://reviews.com/100199,100199
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-10,Delhi,https://reviews.com/100200,100200
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-11,Mumbai,https://reviews.com/100201,100201
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-12,Bangalore,https://reviews.com/100202,100202
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-13,Gurugram,https://reviews.com/100203,100203
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-14,Delhi,https://reviews.com/100204,100204
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-15,Mumbai,https://reviews.com/100205,100205
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-16,Bangalore,https://reviews.com/100206,100206
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-17,Gurugram,https://reviews.com/100207,100207
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-18,Delhi,https://reviews.com/100208,100208
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-19,Mumbai,https://reviews.com/100209,100209
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-20,Bangalore,https://reviews.com/100210,100210
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-21,Gurugram,https://reviews.com/100211,100211
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-22,Delhi,https://reviews.com/100212,100212
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-23,Mumbai,https://reviews.com/100213,100213
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-24,Bangalore,https://reviews.com/100214,100214
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-10,Gurugram,https://reviews.com/100215,100215
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-11,Delhi,https://reviews.com/100216,100216
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-12,Mumbai,https://reviews.com/100217,100217
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-13,Bangalore,https://reviews.com/100218,100218
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-14,Gurugram,https://reviews.com/100219,100219
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-15,Delhi,https://reviews.com/100220,100220
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-16,Mumbai,https://reviews.com/100221,100221
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-17,Bangalore,https://reviews.com/100222,100222
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-18,Gurugram,https://reviews.com/100223,100223
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-19,Delhi,https://reviews.com/100224,100224
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-20,Mumbai,https://reviews.com/100225,100225
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-21,Bangalore,https://reviews.com/100226,100226
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-22,Gurugram,https://reviews.com/100227,100227
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-23,Delhi,https://reviews.com/100228,100228
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-24,Mumbai,https://reviews.com/100229,100229
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-10,Bangalore,https://reviews.com/100230,100230
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-11,Gurugram,https://reviews.com/100231,100231
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-12,Delhi,https://reviews.com/100232,100232
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-13,Mumbai,https://reviews.com/100233,100233
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-14,Bangalore,https://reviews.com/100234,100234
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-15,Gurugram,https://reviews.com/100235,100235
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-16,Delhi,https://reviews.com/100236,100236
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-17,Mumbai,https://reviews.com/100237,100237
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-18,Bangalore,https://reviews.com/100238,100238
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-19,Gurugram,https://reviews.com/100239,100239
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-20,Delhi,https://reviews.com/100240,100240
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-21,Mumbai,https://reviews.com/100241,100241
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-22,Bangalore,https://reviews.com/100242,100242
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-23,Gurugram,https://reviews.com/100243,100243
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-24,Delhi,https://reviews.com/100244,100244
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-10,Mumbai,https://reviews.com/100245,100245
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-11,Bangalore,https://reviews.com/100246,100246
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-12,Gurugram,https://reviews.com/100247,100247
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-13,Delhi,https://reviews.com/100248,100248
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-14,Mumbai,https://reviews.com/100249,100249
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-15,Bangalore,https://reviews.com/100250,100250
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-16,Gurugram,https://reviews.com/100251,100251
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-17,Delhi,https://reviews.com/100252,100252
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-18,Mumbai,https://reviews.com/100253,100253
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-19,Bangalore,https://reviews.com/100254,100254
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-20,Gurugram,https://reviews.com/100255,100255
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-21,Delhi,https://reviews.com/100256,100256
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-22,Mumbai,https://reviews.com/100257,100257
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-23,Bangalore,https://reviews.com/100258,100258
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-24,Gurugram,https://reviews.com/100259,100259
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-10,Delhi,https://reviews.com/100260,100260
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-11,Mumbai,https://reviews.com/100261,100261
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-12,Bangalore,https://reviews.com/100262,100262
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-13,Gurugram,https://reviews.com/100263,100263
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-14,Delhi,https://reviews.com/100264,100264
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-15,Mumbai,https://reviews.com/100265,100265
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-16,Bangalore,https://reviews.com/100266,100266
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-17,Gurugram,https://reviews.com/100267,100267
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-18,Delhi,https://reviews.com/100268,100268
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-19,Mumbai,https://reviews.com/100269,100269
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-20,Bangalore,https://reviews.com/100270,100270
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-21,Gurugram,https://reviews.com/100271,100271
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-22,Delhi,https://reviews.com/100272,100272
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-23,Mumbai,https://reviews.com/100273,100273
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-24,Bangalore,https://reviews.com/100274,100274
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-10,Gurugram,https://reviews.com/100275,100275
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-11,Delhi,https://reviews.com/100276,100276
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-12,Mumbai,https://reviews.com/100277,100277
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-13,Bangalore,https://reviews.com/100278,100278
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-14,Gurugram,https://reviews.com/100279,100279
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-15,Delhi,https://reviews.com/100280,100280
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-16,Mumbai,https://reviews.com/100281,100281
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-17,Bangalore,https://reviews.com/100282,100282
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-18,Gurugram,https://reviews.com/100283,100283
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-19,Delhi,https://reviews.com/100284,100284
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-20,Mumbai,https://reviews.com/100285,100285
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-21,Bangalore,https://reviews.com/100286,100286
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-22,Gurugram,https://reviews.com/100287,100287
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-23,Delhi,https://reviews.com/100288,100288
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-24,Mumbai,https://reviews.com/100289,100289
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-10,Bangalore,https://reviews.com/100290,100290
+playstore,"I order milk, bread and curd every single week using reorder button.",4,2026-06-11,Gurugram,https://reviews.com/100291,100291
+appstore,"I only search for what I need and go straight to search loop.",4,2026-06-12,Delhi,https://reviews.com/100292,100292
+reddit,"The home feed only shows popular items and recomendation is useless.",4,2026-06-13,Mumbai,https://reviews.com/100293,100293
+forums,"I did not know they have stationery items section, hidden below.",4,2026-06-14,Bangalore,https://reviews.com/100294,100294
+social,"Fruits and vegetables have no expiry date details on PDP, hard to trust.",4,2026-06-15,Gurugram,https://reviews.com/100295,100295
+playstore,"Only big packs of dog food available, need smaller trial packages.",4,2026-06-16,Delhi,https://reviews.com/100296,100296
+appstore,"Merchandising has promo banner spam, crowds out real category introduction.",4,2026-06-17,Mumbai,https://reviews.com/100297,100297
+reddit,"The 10-minute speed promise makes me use it only for emergencies.",4,2026-06-18,Bangalore,https://reviews.com/100298,100298
+forums,"I browse category aisles but the navigation overload is frustrating.",4,2026-06-19,Gurugram,https://reviews.com/100299,100299
+social,"Blinkit has a trust deficit on electronics items, I would not risk buying them.",4,2026-06-20,Delhi,https://reviews.com/100300,100300
