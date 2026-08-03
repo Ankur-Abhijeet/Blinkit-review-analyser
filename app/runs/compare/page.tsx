@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Run } from '../../../lib/types'
+import { apiFetch } from '@/lib/api'
 
 export default function RunComparePage() {
   const [runs, setRuns] = useState<Run[]>([])
@@ -16,7 +17,7 @@ export default function RunComparePage() {
   useEffect(() => {
     async function fetchRuns() {
       try {
-        const res = await fetch('/api/history')
+        const res = await apiFetch('/api/runs')
         if (res.ok) {
           const data = await res.json()
           const list = data.runs || []
@@ -52,7 +53,7 @@ export default function RunComparePage() {
     setComparison(null)
 
     try {
-      const res = await fetch('/api/runs/compare', {
+      const res = await apiFetch('/api/runs/compare', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ baseRunId, targetRunId }),

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { apiFetch } from '../lib/api'
 
 interface AssistantProps {
   runId: string
@@ -30,7 +31,7 @@ export const Assistant: React.FC<AssistantProps> = ({ runId, datasetName = 'Acti
     setLoading(true)
 
     try {
-      const res = await fetch('/api/chat', {
+      const res = await apiFetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ runId, message: query }),

@@ -44,3 +44,5 @@ next-env.d.ts
 local.db
 local.db-journal
 local.db-*
+test.db
+test.db-*

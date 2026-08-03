@@ -1,18 +1,18 @@
 import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
-import { db, runMigrations, isServerless } from './client'
+import { db, runMigrations, isEphemeralFs } from './client'
 import { ClassifiedReview } from '../types'
 import * as taxonomy from '../taxonomy'
 
 const CACHE_FILE = path.join(process.cwd(), 'data/classification-cache.json')
 
 /**
- * The JSON cache file is a local-development convenience. Vercel's filesystem is
- * read-only, so there the cache lives in memory (per warm instance) and the DB
- * `classification_cache` table is the durable layer.
+ * The JSON cache file is a local-development convenience. In production the
+ * filesystem is ephemeral or read-only, so the cache lives in memory for the
+ * life of the process and the `classification_cache` table is the durable layer.
  */
-let fileCacheWritable = !isServerless
+let fileCacheWritable = !isEphemeralFs
 
 let memoryCache: Record<string, ClassifiedReview> | null = null
 

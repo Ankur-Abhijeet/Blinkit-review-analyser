@@ -3,22 +3,27 @@ import path from 'path'
 import { SCHEMA_STATEMENTS } from './schema'
 
 /**
- * On Vercel the filesystem is read-only, so a `file:` SQLite database cannot be
- * used. Turso (TURSO_DATABASE_URL) is required in that environment; locally we
- * fall back to ./local.db so `npm run dev` works with no configuration.
+ * Hosted environments (Render's free tier, Vercel) have an ephemeral or
+ * read-only filesystem, so a `file:` SQLite database either cannot be written
+ * or is wiped on every deploy and spin-down. A remote libSQL database
+ * (TURSO_DATABASE_URL) is required there. Locally we fall back to ./local.db so
+ * `npm run dev` works with no configuration.
  */
-export const isServerless = Boolean(process.env.VERCEL)
+export const isEphemeralFs = Boolean(
+  process.env.RENDER || process.env.VERCEL || process.env.NODE_ENV === 'production'
+)
 
 function resolveUrl(): string {
   const remote = process.env.TURSO_DATABASE_URL
   if (remote) return remote
 
-  if (isServerless) {
+  if (isEphemeralFs) {
     throw new Error(
-      'TURSO_DATABASE_URL is not set. A remote libSQL/Turso database is required ' +
-        'when running on Vercel — the serverless filesystem is read-only, so the ' +
-        'local.db fallback cannot be used. Set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN ' +
-        'in the project environment variables.'
+      'TURSO_DATABASE_URL is not set. A remote libSQL/Turso database is required in ' +
+        'production — the hosting filesystem is ephemeral (Render free tier) or ' +
+        'read-only (Vercel), so the local.db fallback would be wiped or unwritable. ' +
+        'Create a free database at https://turso.tech and set TURSO_DATABASE_URL and ' +
+        'TURSO_AUTH_TOKEN in the service environment.'
     )
   }
 

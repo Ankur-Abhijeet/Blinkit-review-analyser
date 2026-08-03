@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Run } from '../../lib/types'
+import { apiFetch } from '../../lib/api'
 
 export default function HistoryPage() {
   const [runs, setRuns] = useState<Run[]>([])
@@ -12,7 +13,7 @@ export default function HistoryPage() {
   const fetchRuns = async () => {
     try {
       setTimeout(() => setLoading(true), 0)
-      const res = await fetch('/api/runs')
+      const res = await apiFetch('/api/runs')
       if (!res.ok) {
         throw new Error(`Failed to load historical runs: status ${res.status}`)
       }
@@ -37,7 +38,7 @@ export default function HistoryPage() {
     }
 
     try {
-      await fetch(`/api/runs/${id}`, { method: 'DELETE' })
+      await apiFetch(`/api/runs/${id}`, { method: 'DELETE' })
       setRuns((prev) => prev.filter((r) => r.id !== id))
     } catch (err: unknown) {
       alert(`Delete failed: ${err instanceof Error ? err.message : String(err)}`)

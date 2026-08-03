@@ -12,6 +12,7 @@ import { planCorpusSplit } from '../lib/split'
 import { buildFindingsReport } from '../lib/findings'
 import { synthesizeReport } from '../lib/synthesis'
 import { aggregateReviews } from '../lib/aggregate'
+import { apiFetch } from '../lib/api'
 
 interface FetchStats {
   totalRawFetched: number
@@ -83,7 +84,7 @@ export default function Home() {
   // Load source configs and LLM config on mount
   useEffect(() => {
     setIsMock(false)
-    fetch('/api/classify/config')
+    apiFetch('/api/classify/config')
       .then((res) => res.json())
       .then((data) => {
         setTpdConsumed(data.tpdConsumed || 0)
@@ -94,7 +95,7 @@ export default function Home() {
       })
       .catch(() => {})
 
-    fetch('/api/source-config')
+    apiFetch('/api/source-config')
       .then((res) => res.json())
       .then((configs: Record<string, { defaultLimit: number; maxLimit: number; avgReviewLength: number; hasNativeRating: boolean; description: string }>) => {
         setSourceConfigs(configs)
@@ -145,7 +146,7 @@ export default function Home() {
         setProgressPct(pct)
         setStatusText(`Scraping reviews from ${src.toUpperCase()}...`)
 
-        const res = await fetch('/api/fetch-reviews', {
+        const res = await apiFetch('/api/fetch-reviews', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -226,7 +227,7 @@ export default function Home() {
   const handleProceedToPreflight = () => {
     setError('')
 
-    fetch('/api/classify/config')
+    apiFetch('/api/classify/config')
       .then((res) => res.json())
       .then((data) => {
         setTpdConsumed(data.tpdConsumed || 0)
@@ -286,7 +287,7 @@ export default function Home() {
   const handleSaveForLater = async () => {
     try {
       setStatusText('Persisting curated corpus as a queued run...')
-      const res = await fetch('/api/runs/queue', {
+      const res = await apiFetch('/api/runs/queue', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -373,7 +374,7 @@ export default function Home() {
             relevantCount: totalReviews,
           })
 
-          const curateRes = await fetch('/api/curate-reviews', {
+          const curateRes = await apiFetch('/api/curate-reviews', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reviews: chunkBatch, batchSize: selectedBatchSize }),
@@ -417,7 +418,7 @@ export default function Home() {
       let missesToClassify = curatedList
 
       try {
-        const cacheRes = await fetch('/api/classify/cache', {
+        const cacheRes = await apiFetch('/api/classify/cache', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ reviews: curatedList }),
@@ -465,7 +466,7 @@ export default function Home() {
             relevantCount: curatedList.length,
           })
 
-          const classifyRes = await fetch('/api/classify', {
+          const classifyRes = await apiFetch('/api/classify', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reviews: chunkBatch }),
@@ -539,7 +540,7 @@ export default function Home() {
         environment: 'local',
       }
 
-      const saveRes = await fetch('/api/runs', {
+      const saveRes = await apiFetch('/api/runs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ run: finalRun, reviews: classifiedList }),

@@ -11,6 +11,7 @@ import EvidenceDrawer from '@/components/EvidenceDrawer'
 import FullPrintReport from '@/components/FullPrintReport'
 import { openPrintablePdfWindow, downloadPdfFile } from '@/lib/export'
 import { DemoBadge } from '@/components/DemoToggle'
+import { apiFetch } from '@/lib/api'
 
 export default function RunDashboardPage() {
   const params = useParams()
@@ -35,7 +36,7 @@ export default function RunDashboardPage() {
   useEffect(() => {
     if (!id) return
     setTimeout(() => setLoading(true), 0)
-    fetch(`/api/runs/${id}`)
+    apiFetch(`/api/runs/${id}`)
       .then(async (res) => {
         if (!res.ok) {
           throw new Error(`Failed to load research run: status ${res.status}`)

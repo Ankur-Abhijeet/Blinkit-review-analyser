@@ -1,0 +1,32 @@
+# Render blueprint for the ReviewLens API service.
+# The Next.js frontend is deployed separately on Vercel and talks to this
+# service via NEXT_PUBLIC_API_BASE_URL.
+services:
+  - type: web
+    name: reviewlens-api
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: npm run start:server
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Comma-separated frontend origins. Add the Vercel production domain here;
+      # "*.vercel.app" additionally allows preview deployments.
+      - key: CORS_ORIGINS
+        sync: false
+      # Free Render instances have an ephemeral filesystem, so persistence must
+      # be a remote libSQL database. Free tier: https://turso.tech
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
+      # Groq API key for live classification.
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: groq
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile

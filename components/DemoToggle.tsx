@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { apiFetch } from '../lib/api'
 
 export default function DemoToggle() {
   const [isMock, setIsMock] = useState(true)
@@ -20,7 +21,7 @@ export default function DemoToggle() {
       setTimeout(() => setIsMock(val), 0)
     } else {
       // Check config endpoint
-      fetch('/api/classify/config')
+      apiFetch('/api/classify/config')
         .then((res) => res.json())
         .then((data) => {
           setIsMock(data.isMock)
