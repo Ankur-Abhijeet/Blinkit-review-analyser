@@ -1,7 +1,100 @@
-import { db, runMigrations } from './client'
+import { query, transaction, runMigrations, type Row } from './client'
 import { Run, ClassifiedReview, Finding, ExecutiveReport, CurationStats, Aggregation, CuratedReview } from '../types'
 
 export const TAXONOMY_VERSION = '1.0.0'
+
+const RUN_COLUMNS = [
+  'id',
+  'seq',
+  'dataset_name',
+  'status',
+  'created_at',
+  'total_reviews',
+  'exploration_relevant_count',
+  'excluded_count',
+  'source_mix',
+  'fetch_params',
+  'curation_stats',
+  'aggregation',
+  'findings',
+  'executive_report',
+  'readiness_score',
+  'readiness_gaps',
+  'taxonomy_version',
+  'model',
+  'provider',
+  'mock',
+  'environment',
+]
+
+const REVIEW_COLUMNS = [
+  'id',
+  'run_id',
+  'review_id',
+  'source',
+  'text',
+  'rating',
+  'date',
+  'city',
+  'url',
+  'exploration_relevant',
+  'noise_category',
+  'outcome',
+  'user_goal',
+  'research_relevant',
+  'research_questions',
+  'evidence',
+  'exploration_outcome',
+  'theme',
+  'barrier',
+  'behavior',
+  'emotion',
+  'segment',
+  'root_cause',
+  'unmet_need',
+  'mentioned_categories',
+  'confidence',
+  'classification_reasons',
+]
+
+/** Builds `$1, $2, …` for a column list. */
+function placeholders(count: number): string {
+  return Array.from({ length: count }, (_, i) => `$${i + 1}`).join(', ')
+}
+
+/** Builds the `SET col = EXCLUDED.col` clause of an upsert, skipping the key. */
+function upsertAssignments(columns: string[], key: string): string {
+  return columns
+    .filter((c) => c !== key)
+    .map((c) => `${c} = EXCLUDED.${c}`)
+    .join(', ')
+}
+
+function rowToRun(row: Row): Run {
+  return {
+    id: String(row.id),
+    seq: Number(row.seq),
+    dataset_name: String(row.dataset_name),
+    status: row.status as Run['status'],
+    created_at: String(row.created_at),
+    total_reviews: Number(row.total_reviews),
+    exploration_relevant_count: Number(row.exploration_relevant_count),
+    excluded_count: Number(row.excluded_count),
+    source_mix: JSON.parse(String(row.source_mix)),
+    fetch_params: JSON.parse(String(row.fetch_params)),
+    curation_stats: JSON.parse(String(row.curation_stats)) as CurationStats,
+    aggregation: JSON.parse(String(row.aggregation)) as Aggregation,
+    findings: JSON.parse(String(row.findings)) as Finding[],
+    executive_report: JSON.parse(String(row.executive_report)) as ExecutiveReport,
+    readiness_score: Number(row.readiness_score),
+    readiness_gaps: JSON.parse(String(row.readiness_gaps)),
+    taxonomy_version: String(row.taxonomy_version),
+    model: String(row.model),
+    provider: String(row.provider),
+    mock: Boolean(Number(row.mock)),
+    environment: row.environment as Run['environment'],
+  }
+}
 
 export async function saveRun(run: Run, reviews: ClassifiedReview[]): Promise<void> {
   await runMigrations()
@@ -30,59 +123,47 @@ export async function saveRun(run: Run, reviews: ClassifiedReview[]): Promise<vo
   })
 
   // Stamp the taxonomy version
-  const stampedRun = {
-    ...run,
-    taxonomy_version: TAXONOMY_VERSION,
-  }
+  const stampedRun = { ...run, taxonomy_version: TAXONOMY_VERSION }
 
-  // 2. Insert run metadata
-  await db.execute({
-    sql: `INSERT OR REPLACE INTO runs (
-      id, seq, dataset_name, status, created_at, total_reviews,
-      exploration_relevant_count, excluded_count, source_mix, fetch_params,
-      curation_stats, aggregation, findings, executive_report,
-      readiness_score, readiness_gaps, taxonomy_version, model, provider, mock, environment
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    args: [
-      stampedRun.id,
-      stampedRun.seq,
-      stampedRun.dataset_name,
-      stampedRun.status,
-      stampedRun.created_at,
-      stampedRun.total_reviews,
-      stampedRun.exploration_relevant_count,
-      stampedRun.excluded_count,
-      JSON.stringify(stampedRun.source_mix),
-      JSON.stringify(stampedRun.fetch_params),
-      JSON.stringify(stampedRun.curation_stats),
-      JSON.stringify(stampedRun.aggregation),
-      JSON.stringify(stampedRun.findings),
-      JSON.stringify(stampedRun.executive_report),
-      stampedRun.readiness_score,
-      JSON.stringify(stampedRun.readiness_gaps),
-      stampedRun.taxonomy_version,
-      stampedRun.model,
-      stampedRun.provider,
-      stampedRun.mock ? 1 : 0,
-      stampedRun.environment,
-    ],
-  })
+  // The run row and its reviews go in together — a partially written run would
+  // render as a report with missing evidence.
+  await transaction(async (q) => {
+    await q(
+      `INSERT INTO runs (${RUN_COLUMNS.join(', ')})
+       VALUES (${placeholders(RUN_COLUMNS.length)})
+       ON CONFLICT (id) DO UPDATE SET ${upsertAssignments(RUN_COLUMNS, 'id')}`,
+      [
+        stampedRun.id,
+        stampedRun.seq,
+        stampedRun.dataset_name,
+        stampedRun.status,
+        stampedRun.created_at,
+        stampedRun.total_reviews,
+        stampedRun.exploration_relevant_count,
+        stampedRun.excluded_count,
+        JSON.stringify(stampedRun.source_mix),
+        JSON.stringify(stampedRun.fetch_params),
+        JSON.stringify(stampedRun.curation_stats),
+        JSON.stringify(stampedRun.aggregation),
+        JSON.stringify(stampedRun.findings),
+        JSON.stringify(stampedRun.executive_report),
+        stampedRun.readiness_score,
+        JSON.stringify(stampedRun.readiness_gaps),
+        stampedRun.taxonomy_version,
+        stampedRun.model,
+        stampedRun.provider,
+        stampedRun.mock ? 1 : 0,
+        stampedRun.environment,
+      ],
+    )
 
-  // 3. Insert run reviews using batch execution
-  // Prepare transaction statements
-  const statements = reviews.map((r) => {
-    const compositeId = `${stampedRun.id}::${r.review_id}`
-    return {
-      sql: `INSERT OR REPLACE INTO run_reviews (
-        id, run_id, review_id, source, text, rating, date, city, url,
-        exploration_relevant, noise_category, outcome, user_goal,
-        research_relevant, research_questions, evidence, exploration_outcome,
-        theme, barrier, behavior, emotion, segment, root_cause, unmet_need,
-        mentioned_categories, confidence, classification_reasons
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      args: (() => {
-        const list = [
-          compositeId,
+    for (const r of reviews) {
+      await q(
+        `INSERT INTO run_reviews (${REVIEW_COLUMNS.join(', ')})
+         VALUES (${placeholders(REVIEW_COLUMNS.length)})
+         ON CONFLICT (id) DO UPDATE SET ${upsertAssignments(REVIEW_COLUMNS, 'id')}`,
+        [
+          `${stampedRun.id}::${r.review_id}`,
           stampedRun.id,
           r.review_id || 'unknown_id',
           r.source,
@@ -109,20 +190,10 @@ export async function saveRun(run: Run, reviews: ClassifiedReview[]): Promise<vo
           r.mentioned_categories ? JSON.stringify(r.mentioned_categories) : null,
           r.confidence !== undefined ? r.confidence : null,
           r.classification_reasons ? JSON.stringify(r.classification_reasons) : null,
-        ]
-        list.forEach((val, idx) => {
-          if (val === undefined) {
-            console.error(`[DB] Param index ${idx} is undefined for review_id: ${r.review_id}`)
-          }
-        })
-        return list
-      })(),
+        ],
+      )
     }
   })
-
-  if (statements.length > 0) {
-    await db.batch(statements)
-  }
 }
 
 export async function loadRun(
@@ -130,47 +201,15 @@ export async function loadRun(
 ): Promise<{ run: Run; reviews: ClassifiedReview[] } | null> {
   await runMigrations()
 
-  // 1. Fetch run metadata
-  const runRes = await db.execute({
-    sql: `SELECT * FROM runs WHERE id = ?`,
-    args: [id],
-  })
+  const runRes = await query(`SELECT * FROM runs WHERE id = $1`, [id])
+  if (runRes.rows.length === 0) return null
 
-  if (runRes.rows.length === 0) {
-    return null
-  }
+  const run = rowToRun(runRes.rows[0])
 
-  const row = runRes.rows[0]
+  const reviewRes = await query(`SELECT * FROM run_reviews WHERE run_id = $1`, [id])
 
-  const run: Run = {
-    id: String(row.id),
-    seq: Number(row.seq),
-    dataset_name: String(row.dataset_name),
-    status: row.status as Run['status'],
-    created_at: String(row.created_at),
-    total_reviews: Number(row.total_reviews),
-    exploration_relevant_count: Number(row.exploration_relevant_count),
-    excluded_count: Number(row.excluded_count),
-    source_mix: JSON.parse(String(row.source_mix)),
-    fetch_params: JSON.parse(String(row.fetch_params)),
-    curation_stats: JSON.parse(String(row.curation_stats)) as CurationStats,
-    aggregation: JSON.parse(String(row.aggregation)) as Aggregation,
-    findings: JSON.parse(String(row.findings)) as Finding[],
-    executive_report: JSON.parse(String(row.executive_report)) as ExecutiveReport,
-    readiness_score: Number(row.readiness_score),
-    readiness_gaps: JSON.parse(String(row.readiness_gaps)),
-    taxonomy_version: String(row.taxonomy_version),
-    model: String(row.model),
-    provider: String(row.provider),
-    mock: Boolean(row.mock),
-    environment: row.environment as Run['environment'],
-  }
-
-  // 2. Fetch reviews
-  const reviewRes = await db.execute({
-    sql: `SELECT * FROM run_reviews WHERE run_id = ?`,
-    args: [id],
-  })
+  const parseJson = <T>(value: unknown, fallback: T): T =>
+    value === null || value === undefined ? fallback : (JSON.parse(String(value)) as T)
 
   const reviews: ClassifiedReview[] = reviewRes.rows.map((r) => ({
     review_id: String(r.review_id),
@@ -180,12 +219,12 @@ export async function loadRun(
     date: r.date !== null ? String(r.date) : undefined,
     city: r.city !== null ? String(r.city) : undefined,
     url: r.url !== null ? String(r.url) : undefined,
-    exploration_relevant: Boolean(r.exploration_relevant),
+    exploration_relevant: Boolean(Number(r.exploration_relevant)),
     noise_category: r.noise_category !== null ? (String(r.noise_category) as CuratedReview['noise_category']) : undefined,
     outcome: r.outcome !== null ? (String(r.outcome) as CuratedReview['outcome']) : undefined,
     user_goal: r.user_goal !== null ? String(r.user_goal) : undefined,
-    research_relevant: Boolean(r.research_relevant),
-    research_questions: JSON.parse(String(r.research_questions)),
+    research_relevant: Boolean(Number(r.research_relevant)),
+    research_questions: parseJson(r.research_questions, []),
     evidence: String(r.evidence),
     exploration_outcome: String(r.exploration_outcome) as ClassifiedReview['exploration_outcome'],
     theme: String(r.theme) as ClassifiedReview['theme'],
@@ -195,9 +234,9 @@ export async function loadRun(
     segment: String(r.segment) as ClassifiedReview['segment'],
     root_cause: String(r.root_cause) as ClassifiedReview['root_cause'],
     unmet_need: String(r.unmet_need) as ClassifiedReview['unmet_need'],
-    mentioned_categories: JSON.parse(String(r.mentioned_categories)),
+    mentioned_categories: parseJson(r.mentioned_categories, []),
     confidence: Number(r.confidence),
-    classification_reasons: JSON.parse(String(r.classification_reasons)),
+    classification_reasons: parseJson(r.classification_reasons, []),
   }))
 
   return { run, reviews }
@@ -205,82 +244,42 @@ export async function loadRun(
 
 export async function listRuns(): Promise<Run[]> {
   await runMigrations()
-
-  const runRes = await db.execute({
-    sql: `SELECT * FROM runs ORDER BY seq DESC`,
-    args: [],
-  })
-
-  return runRes.rows.map((row) => ({
-    id: String(row.id),
-    seq: Number(row.seq),
-    dataset_name: String(row.dataset_name),
-    status: row.status as Run['status'],
-    created_at: String(row.created_at),
-    total_reviews: Number(row.total_reviews),
-    exploration_relevant_count: Number(row.exploration_relevant_count),
-    excluded_count: Number(row.excluded_count),
-    source_mix: JSON.parse(String(row.source_mix)),
-    fetch_params: JSON.parse(String(row.fetch_params)),
-    curation_stats: JSON.parse(String(row.curation_stats)) as CurationStats,
-    aggregation: JSON.parse(String(row.aggregation)) as Aggregation,
-    findings: JSON.parse(String(row.findings)) as Finding[],
-    executive_report: JSON.parse(String(row.executive_report)) as ExecutiveReport,
-    readiness_score: Number(row.readiness_score),
-    readiness_gaps: JSON.parse(String(row.readiness_gaps)),
-    taxonomy_version: String(row.taxonomy_version),
-    model: String(row.model),
-    provider: String(row.provider),
-    mock: Boolean(row.mock),
-    environment: row.environment as Run['environment'],
-  }))
+  const runRes = await query(`SELECT * FROM runs ORDER BY seq DESC`)
+  return runRes.rows.map(rowToRun)
 }
 
 export async function deleteRun(id: string): Promise<void> {
   await runMigrations()
-  
-  await db.execute({
-    sql: `DELETE FROM runs WHERE id = ?`,
-    args: [id],
-  })
+  await query(`DELETE FROM runs WHERE id = $1`, [id])
 }
 
 export async function getDailyUsage(): Promise<{ tpdConsumed: number; rpdConsumed: number }> {
   await runMigrations()
   const todayPrefix = new Date().toISOString().split('T')[0] // 'YYYY-MM-DD'
-  const runRes = await db.execute({
-    sql: `SELECT * FROM runs WHERE created_at LIKE ?`,
-    args: [`${todayPrefix}%`],
-  })
+
+  // Estimated tokens per run, summed in SQL rather than by loading every review
+  // into memory: 4.1 characters per token, matching lib/llm/limits.
+  const res = await query(
+    `SELECT r.exploration_relevant_count AS relevant_count,
+            COALESCE(SUM(CEIL(LENGTH(rr.text) / 4.1)), 0) AS run_tokens
+       FROM runs r
+       LEFT JOIN run_reviews rr ON rr.run_id = r.id
+      WHERE r.created_at LIKE $1
+        AND r.mock = 0
+      GROUP BY r.id, r.exploration_relevant_count`,
+    [`${todayPrefix}%`],
+  )
 
   let tpdConsumed = 0
   let rpdConsumed = 0
 
-  for (const row of runRes.rows) {
-    const isMock = Boolean(row.mock)
-    if (isMock) continue // Skip mock runs as they do not consume real API limits
+  // Default batch size is 3 (P9-T02 / LLM_CLASSIFY_BATCH_SIZE)
+  const batchSize = 3
 
-    const relevantCount = Number(row.exploration_relevant_count)
-
-    // Load reviews to compute estimated tokens
-    const reviewsRes = await db.execute({
-      sql: `SELECT text FROM run_reviews WHERE run_id = ?`,
-      args: [String(row.id)],
-    })
-
-    let runTokens = 0
-    for (const rRow of reviewsRes.rows) {
-      runTokens += Math.ceil(String(rRow.text).length / 4.1)
-    }
-
-    // Default batch size is 3 (P9-T02 / LLM_CLASSIFY_BATCH_SIZE)
-    const batchSize = 3
-    const batchRequests = Math.ceil(relevantCount / batchSize)
-
-    tpdConsumed += runTokens
-    rpdConsumed += batchRequests
+  for (const row of res.rows) {
+    tpdConsumed += Number(row.run_tokens)
+    rpdConsumed += Math.ceil(Number(row.relevant_count) / batchSize)
   }
 
   return { tpdConsumed, rpdConsumed }
 }
-

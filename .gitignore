@@ -40,9 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local database
+# local databases (embedded PGlite; production uses Render Postgres)
+.pglite
+.pglite-test
 local.db
-local.db-journal
 local.db-*
 test.db
-test.db-*

@@ -1,72 +1,144 @@
-import { createClient, Client } from '@libsql/client'
 import path from 'path'
 import { SCHEMA_STATEMENTS } from './schema'
 
 /**
- * Hosted environments (Render's free tier, Vercel) have an ephemeral or
- * read-only filesystem, so a `file:` SQLite database either cannot be written
- * or is wiped on every deploy and spin-down. A remote libSQL database
- * (TURSO_DATABASE_URL) is required there. Locally we fall back to ./local.db so
- * `npm run dev` works with no configuration.
+ * Persistence is PostgreSQL — Render Postgres in production.
+ *
+ * With no DATABASE_URL the driver falls back to PGlite, an embedded Postgres
+ * that stores to a local directory. Same SQL dialect, no server to install, so
+ * `npm run dev:all` and the test suite work with zero setup. Production always
+ * uses the real thing.
  */
-export const isEphemeralFs = Boolean(
-  process.env.RENDER || process.env.VERCEL || process.env.NODE_ENV === 'production'
-)
+export type Row = Record<string, unknown>
+export type QueryResult = { rows: Row[] }
 
-function resolveUrl(): string {
-  const remote = process.env.TURSO_DATABASE_URL
-  if (remote) return remote
+const DATABASE_URL = process.env.DATABASE_URL || ''
+export const isEmbedded = !DATABASE_URL
 
-  if (isEphemeralFs) {
-    throw new Error(
-      'TURSO_DATABASE_URL is not set. A remote libSQL/Turso database is required in ' +
-        'production — the hosting filesystem is ephemeral (Render free tier) or ' +
-        'read-only (Vercel), so the local.db fallback would be wiped or unwritable. ' +
-        'Create a free database at https://turso.tech and set TURSO_DATABASE_URL and ' +
-        'TURSO_AUTH_TOKEN in the service environment.'
-    )
-  }
+const isProduction = Boolean(process.env.RENDER || process.env.NODE_ENV === 'production')
 
-  return 'file:' + path.join(process.cwd(), 'local.db')
+if (isEmbedded && isProduction) {
+  throw new Error(
+    'DATABASE_URL is not set. A PostgreSQL database is required in production — the ' +
+      'embedded PGlite fallback writes to the instance filesystem, which Render wipes ' +
+      'on every deploy and spin-down. Attach a Render Postgres instance and set ' +
+      'DATABASE_URL from its Internal Database URL.'
+  )
 }
 
-let client: Client | null = null
-
-/** Lazily constructed so a missing Turso URL fails per-request, not at import. */
-export function getDb(): Client {
-  if (!client) {
-    client = createClient({
-      url: resolveUrl(),
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    })
-  }
-  return client
+/** Driver-agnostic handle so callers do not care which backend is live. */
+type Driver = {
+  query(sql: string, params: unknown[]): Promise<QueryResult>
+  transaction(work: (q: Driver['query']) => Promise<void>): Promise<void>
 }
 
-/**
- * Proxy kept for backwards compatibility with `import { db } from './client'`.
- * Defers client construction to first property access.
- */
-export const db: Client = new Proxy({} as Client, {
-  get(_target, prop, receiver) {
-    const value = Reflect.get(getDb() as object, prop, receiver)
-    return typeof value === 'function' ? value.bind(getDb()) : value
-  },
-})
+let driverPromise: Promise<Driver> | null = null
 
-let migrated = false
+async function createPgDriver(): Promise<Driver> {
+  const { Pool } = await import('pg')
 
-export async function runMigrations() {
-  if (migrated) return
+  const pool = new Pool({
+    connectionString: DATABASE_URL,
+    // Render Postgres terminates TLS with a certificate the default trust store
+    // does not recognise. External connections still require SSL.
+    ssl: DATABASE_URL.includes('localhost') ? undefined : { rejectUnauthorized: false },
+    // Free instances allow few connections; keep the pool small.
+    max: Number(process.env.PGPOOL_MAX) || 5,
+    idleTimeoutMillis: 30_000,
+  })
 
-  try {
-    for (const statement of SCHEMA_STATEMENTS) {
-      await getDb().execute(statement)
-    }
-    migrated = true
-    console.log('[DB] Migrations completed successfully.')
-  } catch (err) {
-    console.error('[DB] Migrations failed:', err)
-    throw err
+  pool.on('error', (err) => console.error('[DB] Idle client error:', err))
+
+  return {
+    async query(sql, params) {
+      const res = await pool.query(sql, params as unknown[])
+      return { rows: res.rows as Row[] }
+    },
+    async transaction(work) {
+      const client = await pool.connect()
+      try {
+        await client.query('BEGIN')
+        await work(async (sql, params) => {
+          const res = await client.query(sql, params as unknown[])
+          return { rows: res.rows as Row[] }
+        })
+        await client.query('COMMIT')
+      } catch (err) {
+        await client.query('ROLLBACK')
+        throw err
+      } finally {
+        client.release()
+      }
+    },
   }
+}
+
+async function createPgliteDriver(): Promise<Driver> {
+  const { PGlite } = await import('@electric-sql/pglite')
+  const dataDir = process.env.PGLITE_DIR || path.join(process.cwd(), '.pglite')
+  const pglite = new PGlite(dataDir)
+  await pglite.waitReady
+  console.log(`[DB] Using embedded PGlite at ${dataDir} (set DATABASE_URL to use PostgreSQL)`)
+
+  const query = async (sql: string, params: unknown[]): Promise<QueryResult> => {
+    const res = await pglite.query(sql, params as unknown[])
+    return { rows: (res.rows || []) as Row[] }
+  }
+
+  return {
+    query,
+    async transaction(work) {
+      await query('BEGIN', [])
+      try {
+        await work(query)
+        await query('COMMIT', [])
+      } catch (err) {
+        await query('ROLLBACK', [])
+        throw err
+      }
+    },
+  }
+}
+
+function getDriver(): Promise<Driver> {
+  if (!driverPromise) {
+    driverPromise = isEmbedded ? createPgliteDriver() : createPgDriver()
+  }
+  return driverPromise
+}
+
+/** Runs a parameterised statement. Placeholders are Postgres-style ($1, $2, …). */
+export async function query(sql: string, params: unknown[] = []): Promise<QueryResult> {
+  const driver = await getDriver()
+  return driver.query(sql, params)
+}
+
+/** Runs `work` inside a transaction, rolling back if it throws. */
+export async function transaction(
+  work: (q: (sql: string, params?: unknown[]) => Promise<QueryResult>) => Promise<void>
+): Promise<void> {
+  const driver = await getDriver()
+  await driver.transaction((q) => work((sql, params = []) => q(sql, params)))
+}
+
+let migrated: Promise<void> | null = null
+
+export async function runMigrations(): Promise<void> {
+  // Memoise the promise, not a boolean: concurrent first requests would
+  // otherwise each start their own migration run.
+  if (!migrated) {
+    migrated = (async () => {
+      try {
+        for (const statement of SCHEMA_STATEMENTS) {
+          await query(statement)
+        }
+        console.log('[DB] Migrations completed successfully.')
+      } catch (err) {
+        migrated = null
+        console.error('[DB] Migrations failed:', err)
+        throw err
+      }
+    })()
+  }
+  return migrated
 }

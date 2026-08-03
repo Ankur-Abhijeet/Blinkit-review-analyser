@@ -10,7 +10,7 @@ import { calculateBatchSize } from '../lib/llm/limits'
 import { generateChatResponse } from '../lib/llm/client'
 import { getCacheBatch, computeContentHash, writeThroughCache, getTaxonomyHash, setCache } from '../lib/db/cache'
 import { saveRun, listRuns, loadRun, deleteRun, getDailyUsage } from '../lib/db/runs'
-import { db, runMigrations } from '../lib/db/client'
+import { query, runMigrations } from '../lib/db/client'
 import { CuratedReview, ClassifiedReview, Run } from '../lib/types'
 
 /** Wraps an async handler so a rejected promise becomes a 500 instead of an unhandled rejection. */
@@ -291,14 +291,14 @@ export function registerRoutes(app: Express) {
       const now = new Date().toISOString()
       const name = datasetName || `Queued Corpus ${partIndex ? `(Part ${partIndex}/${totalParts})` : ''}`
 
-      await db.execute({
-        sql: `INSERT INTO runs (
+      await query(
+        `INSERT INTO runs (
           id, seq, dataset_name, status, created_at, total_reviews,
           exploration_relevant_count, excluded_count, source_mix, fetch_params,
           curation_stats, aggregation, findings, executive_report,
           readiness_score, readiness_gaps, taxonomy_version, model, provider, mock, environment
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        args: [
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)`,
+        [
           queueId,
           Date.now(),
           name,
@@ -327,7 +327,7 @@ export function registerRoutes(app: Express) {
           0,
           process.env.NODE_ENV === 'production' ? 'prod' : 'local',
         ],
-      })
+      )
 
       res.json({
         success: true,

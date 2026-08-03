@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
-import { db, runMigrations, isEphemeralFs } from './client'
+import { query, transaction, runMigrations, isEmbedded } from './client'
 import { ClassifiedReview } from '../types'
 import * as taxonomy from '../taxonomy'
 
@@ -12,7 +12,7 @@ const CACHE_FILE = path.join(process.cwd(), 'data/classification-cache.json')
  * filesystem is ephemeral or read-only, so the cache lives in memory for the
  * life of the process and the `classification_cache` table is the durable layer.
  */
-let fileCacheWritable = !isEphemeralFs
+let fileCacheWritable = isEmbedded
 
 let memoryCache: Record<string, ClassifiedReview> | null = null
 
@@ -124,14 +124,22 @@ export async function getCacheBatch(hashes: string[]): Promise<{ hits: Record<st
   // Check DB for any missing items
   try {
     await runMigrations()
-    for (const hash of missingFromMemory) {
-      const res = await db.execute({
-        sql: `SELECT review_json FROM classification_cache WHERE hash = ?`,
-        args: [hash],
-      })
+    // One round trip for the whole batch rather than a query per hash — over a
+    // network-attached Postgres the per-hash version dominated classify latency.
+    const res = await query(
+      `SELECT hash, review_json FROM classification_cache WHERE hash = ANY($1)`,
+      [missingFromMemory],
+    )
 
-      if (res.rows.length > 0 && res.rows[0].review_json) {
-        const review = JSON.parse(String(res.rows[0].review_json)) as ClassifiedReview
+    const found = new Map<string, ClassifiedReview>()
+    for (const row of res.rows) {
+      if (!row.review_json) continue
+      found.set(String(row.hash), JSON.parse(String(row.review_json)) as ClassifiedReview)
+    }
+
+    for (const hash of missingFromMemory) {
+      const review = found.get(hash)
+      if (review) {
         hits[hash] = review
         fileCache[hash] = review // update memory/file cache
       } else {
@@ -156,22 +164,27 @@ export function setCache(hash: string, data: ClassifiedReview): void {
 export async function writeThroughCache(items: Record<string, ClassifiedReview>): Promise<void> {
   const fileCache = loadCacheFromFile()
   const now = new Date().toISOString()
-  const statements: Array<{ sql: string; args: unknown[] }> = []
+  const entries = Object.entries(items)
 
-  for (const [hash, review] of Object.entries(items)) {
+  for (const [hash, review] of entries) {
     fileCache[hash] = review
-    statements.push({
-      sql: `INSERT OR REPLACE INTO classification_cache (hash, review_json, created_at) VALUES (?, ?, ?)`,
-      args: [hash, JSON.stringify(review), now],
-    })
   }
 
   saveCacheToFile()
 
-  if (statements.length > 0) {
+  if (entries.length > 0) {
     try {
       await runMigrations()
-      await db.batch(statements as any)
+      await transaction(async (q) => {
+        for (const [hash, review] of entries) {
+          await q(
+            `INSERT INTO classification_cache (hash, review_json, created_at)
+             VALUES ($1, $2, $3)
+             ON CONFLICT (hash) DO UPDATE SET review_json = EXCLUDED.review_json, created_at = EXCLUDED.created_at`,
+            [hash, JSON.stringify(review), now],
+          )
+        }
+      })
     } catch (err) {
       console.error('[CACHE] Failed to write-through to DB:', err)
     }
@@ -184,10 +197,7 @@ export async function clearCache(): Promise<void> {
 
   try {
     await runMigrations()
-    await db.execute({
-      sql: `DELETE FROM classification_cache`,
-      args: [],
-    })
+    await query(`DELETE FROM classification_cache`)
   } catch (err) {
     console.error('[CACHE] Failed to clear DB classification cache:', err)
   }

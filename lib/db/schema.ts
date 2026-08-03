@@ -1,15 +1,16 @@
 /**
- * Schema for ReviewLens persistence.
+ * Schema for ReviewLens persistence (PostgreSQL).
  *
  * Kept as a TypeScript module rather than a .sql file read at runtime so the
- * statements are bundled into the serverless function. On Vercel the source
- * tree is not present at process.cwd(), so fs.readFileSync('lib/db/schema.sql')
- * would fail in production.
+ * statements are bundled with the service — the source tree is not guaranteed
+ * to be present at process.cwd() in a deployed build.
+ *
+ * `seq` is BIGINT because it holds Date.now() values, which overflow INTEGER.
  */
 export const SCHEMA_STATEMENTS: string[] = [
   `CREATE TABLE IF NOT EXISTS runs (
     id TEXT PRIMARY KEY,
-    seq INTEGER NOT NULL,
+    seq BIGINT NOT NULL,
     dataset_name TEXT NOT NULL,
     status TEXT NOT NULL,
     created_at TEXT NOT NULL,
@@ -22,7 +23,7 @@ export const SCHEMA_STATEMENTS: string[] = [
     aggregation TEXT NOT NULL,
     findings TEXT NOT NULL,
     executive_report TEXT NOT NULL,
-    readiness_score REAL NOT NULL,
+    readiness_score DOUBLE PRECISION NOT NULL,
     readiness_gaps TEXT NOT NULL,
     taxonomy_version TEXT NOT NULL,
     model TEXT NOT NULL,
@@ -46,21 +47,23 @@ export const SCHEMA_STATEMENTS: string[] = [
     outcome TEXT,
     user_goal TEXT,
     research_relevant INTEGER NOT NULL,
-    research_questions TEXT NOT NULL,
-    evidence TEXT NOT NULL,
-    exploration_outcome TEXT NOT NULL,
-    theme TEXT NOT NULL,
-    barrier TEXT NOT NULL,
-    behavior TEXT NOT NULL,
-    emotion TEXT NOT NULL,
-    segment TEXT NOT NULL,
-    root_cause TEXT NOT NULL,
-    unmet_need TEXT NOT NULL,
-    mentioned_categories TEXT NOT NULL,
-    confidence REAL NOT NULL,
-    classification_reasons TEXT NOT NULL,
-    FOREIGN KEY(run_id) REFERENCES runs(id) ON DELETE CASCADE
+    research_questions TEXT,
+    evidence TEXT,
+    exploration_outcome TEXT,
+    theme TEXT,
+    barrier TEXT,
+    behavior TEXT,
+    emotion TEXT,
+    segment TEXT,
+    root_cause TEXT,
+    unmet_need TEXT,
+    mentioned_categories TEXT,
+    confidence DOUBLE PRECISION,
+    classification_reasons TEXT,
+    CONSTRAINT run_reviews_run_id_fkey FOREIGN KEY (run_id) REFERENCES runs(id) ON DELETE CASCADE
   )`,
+
+  `CREATE INDEX IF NOT EXISTS run_reviews_run_id_idx ON run_reviews (run_id)`,
 
   `CREATE TABLE IF NOT EXISTS classification_cache (
     hash TEXT PRIMARY KEY,

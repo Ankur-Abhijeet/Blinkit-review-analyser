@@ -6,13 +6,13 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: ['**/*.test.ts', '**/*.test.tsx'],
-    // Several suites hit the same SQLite file. Running their files in parallel
-    // makes writers collide with SQLITE_BUSY, so keep file execution serial.
+    // Several suites hit the same embedded database. Running their files in
+    // parallel makes writers collide, so keep file execution serial.
     fileParallelism: false,
-    // Point persistence at a scratch database so a test run never mutates the
-    // local.db a developer is working against.
+    // Point persistence at a scratch directory so a test run never mutates the
+    // development database.
     env: {
-      TURSO_DATABASE_URL: 'file:test.db',
+      PGLITE_DIR: '.pglite-test',
     },
     coverage: {
       reporter: ['text', 'lcov'],

@@ -9,7 +9,8 @@ Two deployable services out of one repo:
 
 | Service | Code | Host | Role |
 | --- | --- | --- | --- |
-| API | `server/` + `lib/` | Render (free web service) | Scraping, curation, classification, persistence |
+| API | `server/` + `lib/` | Render (free web service) | Scraping, curation, classification |
+| Database | — | Render Postgres (free) | Runs, reviews, classification cache |
 | Frontend | `app/` + `components/` | Vercel (Hobby) | UI; calls the API cross-origin |
 
 The split exists because scraping and classifying a large corpus runs for many
@@ -32,9 +33,11 @@ npm run dev:all
 `dev:all` runs the API on :3001 and the frontend on :3000. Open
 [http://localhost:3000](http://localhost:3000).
 
-With no configuration the API uses a local `./local.db` SQLite file. Set
-`LLM_API_KEY` (Groq) for live classification; without it the classify and curate
-endpoints return a 400.
+With no configuration the API stores to an embedded PGlite database in
+`./.pglite` — same Postgres dialect as production, no server to install. Set
+`DATABASE_URL` to point at a real PostgreSQL instead. Set `LLM_API_KEY` (Groq)
+for live classification; without it the classify and curate endpoints return
+a 400.
 
 | Command | Purpose |
 | --- | --- |
@@ -48,12 +51,18 @@ endpoints return a 400.
 
 ## Deploying — all free tier
 
-### 1. Database — Turso
+### 1. Database — Render Postgres
 
-Both hosts have a filesystem that cannot hold a database: Render's free instances
-are wiped on deploy and spin-down, and Vercel's is read-only. Create a free
-database at [turso.tech](https://turso.tech) and keep its URL and auth token.
-Schema migrations run automatically on the first request that hits the database.
+Neither host has a filesystem that can hold a database: Render's free instances
+are wiped on deploy and spin-down, and Vercel's is read-only. Create a
+**PostgreSQL** instance on Render (free plan) in the same region as the API.
+[render.yaml](render.yaml) declares it and wires `DATABASE_URL` into the service
+automatically. Schema migrations run on the first request that hits the database.
+
+> **Free Postgres expires.** Render deletes free PostgreSQL instances 30 days
+> after creation. When that happens you create a new one and update
+> `DATABASE_URL`; the schema rebuilds itself, but stored runs are gone. Upgrade
+> the database to a paid tier if the history needs to survive.
 
 ### 2. API — Render
 
@@ -69,8 +78,7 @@ Environment variables:
 
 | Variable | Required | Notes |
 | --- | --- | --- |
-| `TURSO_DATABASE_URL` | yes | `libsql://…` — the API refuses to start a request without it in production |
-| `TURSO_AUTH_TOKEN` | yes | Token for the above |
+| `DATABASE_URL` | yes | Wired automatically from the Render Postgres instance; the API refuses to serve requests without it in production |
 | `CORS_ORIGINS` | yes | Your Vercel domain, e.g. `https://reviewlens.vercel.app,*.vercel.app` |
 | `LLM_API_KEY` | for live runs | Groq key; `GROQ_API_KEY` also works |
 | `LLM_PROVIDER` / `LLM_MODEL` | no | Default to `groq` / `llama-3.3-70b-versatile` |
@@ -100,14 +108,14 @@ the production domain, add it to `CORS_ORIGINS` on Render.
   hours per month across all free services in the account.
 - **Groq quota.** Defaults assume the free tier (100k tokens/day, 14.4k
   requests/day); the pre-flight panel tracks consumption against those numbers.
-- **Turso free tier** is generous but finite — 500 databases, 9 GB total.
+- **Free Postgres is deleted after 30 days,** and is capped at 1 GB storage.
 
-### Serverless notes
+### Runtime notes
 
 - The classification cache (`data/classification-cache.json`) is a local-dev
   convenience. In production it lives in memory for the life of the process, with
-  the `classification_cache` table in Turso as the durable layer — so a cold start
-  costs cache hits, not data.
+  the `classification_cache` table in Postgres as the durable layer — so a cold
+  start costs cache hits, not data.
 - `data/seed-corpus.csv` is read at runtime by the collectors and ships with the
   Render service.
 - `SCRAPER_DELAY_MIN` / `SCRAPER_DELAY_MAX` govern politeness delays between
