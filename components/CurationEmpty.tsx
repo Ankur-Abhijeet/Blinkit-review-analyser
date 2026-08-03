@@ -1,16 +1,12 @@
 'use client'
 
 import React from 'react'
+import { CurationStats } from '../lib/types'
 
 interface CurationEmptyProps {
   onReset: () => void
   onBypass?: () => void
-  curationStats?: {
-    totalInput?: number
-    uniqueRecords?: number
-    explorationRelevant?: number
-    noiseBreakdown?: Record<string, number>
-  }
+  curationStats?: CurationStats
 }
 
 export const CurationEmpty: React.FC<CurationEmptyProps> = ({ onReset, onBypass, curationStats }) => {
@@ -25,7 +21,7 @@ export const CurationEmpty: React.FC<CurationEmptyProps> = ({ onReset, onBypass,
         <div>
           <h3 className="text-xl font-bold text-amber-300">No Discovery-Relevant Reviews Found</h3>
           <p className="text-sm text-amber-200/80">
-            {curationStats?.totalInput ? `${curationStats.totalInput} reviews were ingested, but 0 survived domain curation.` : 'The curation filter returned 0 relevant reviews for classification.'}
+            {curationStats?.loaded ? `${curationStats.loaded} reviews were ingested, but 0 survived domain curation.` : 'The curation filter returned 0 relevant reviews for classification.'}
           </p>
         </div>
       </div>

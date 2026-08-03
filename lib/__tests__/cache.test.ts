@@ -59,7 +59,7 @@ describe('Phase 6 - Classification Cache Unit Tests', () => {
       barrier: 'Low Category Awareness',
       behavior: 'Browse Category Aisles',
       emotion: 'Frustration',
-      segment: 'Occasion Shopper',
+      segment: 'Impulse & Emergency Shopper',
       root_cause: 'Buried Category Entry Points',
       unmet_need: 'Better Category Navigation',
       mentioned_categories: [],

@@ -3,6 +3,14 @@ import { RawReview } from '../../../lib/types'
 import { curateReviews } from '../../../lib/curate'
 import { curateReviewsLlm } from '../../../lib/curate' // We will implement curateReviewsLlm in lib/curate.ts
 
+// Runs external HTTP fetches and libSQL queries — must be the Node.js runtime,
+// and never statically rendered at build time.
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+// Vercel Hobby caps functions at 60s; raise this if the project is on Pro.
+export const maxDuration = 60
+
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()

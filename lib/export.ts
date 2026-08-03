@@ -687,7 +687,13 @@ export async function downloadPdfFile(run: Run): Promise<void> {
     pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
   }
 
-  const html2pdf = (window as unknown as { html2pdf: (element: HTMLElement, options: unknown) => { save: () => Promise<void> } }).html2pdf
+  // html2pdf exposes a chainable builder: html2pdf().set(opt).from(el).save()
+  type Html2PdfBuilder = {
+    set: (options: unknown) => Html2PdfBuilder
+    from: (element: HTMLElement) => Html2PdfBuilder
+    save: () => Promise<void>
+  }
+  const html2pdf = (window as unknown as { html2pdf: () => Html2PdfBuilder }).html2pdf
   try {
     await html2pdf().set(opt).from(container).save()
   } finally {

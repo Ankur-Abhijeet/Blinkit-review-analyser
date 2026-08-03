@@ -418,7 +418,7 @@ From [`architecture.md` P3](architecture.md). The distinction that saves hours: 
 
 | ID | Task | Files | Est. |
 |---|---|---|---|
-| P4-T01 | Turso schema + migrations | `lib/db/schema.sql`, `lib/db/client.ts` | 0.5 |
+| P4-T01 | Turso schema + migrations | `lib/db/schema.ts`, `lib/db/client.ts` | 0.5 |
 | P4-T02 | Run persistence + load; `taxonomy_version` stamping | `lib/db/runs.ts` | 0.75 |
 | P4-T03 | `POST /api/runs`, `GET /api/runs/{id}` | `app/api/runs/**` | 0.5 |
 | P4-T04 | Material 3 token layer, light + dark | `app/globals.css` | 0.5 |

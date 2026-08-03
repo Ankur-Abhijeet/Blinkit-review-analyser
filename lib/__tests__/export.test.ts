@@ -61,7 +61,7 @@ describe('Phase 7 - Export Serializers & CSV Security Unit Tests', () => {
         barrier: 'Low Category Awareness',
         behavior: 'Browse Category Aisles',
         emotion: 'Frustration',
-        segment: 'New or Low-Tenure User',
+        segment: 'Exploratory & Premium Trialist',
         root_cause: 'Buried Category Entry Points',
         unmet_need: 'Better Category Navigation',
         mentioned_categories: ['dairy'],

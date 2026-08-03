@@ -100,7 +100,7 @@ describe('Phase 2 Pipeline & Synthesis Tests', () => {
         exploration_relevant: true,
         research_relevant: true,
         theme: 'Successful Category Trial',
-        segment: 'Occasion Shopper',
+        segment: 'Impulse & Emergency Shopper',
         barrier: 'Unclear Exploration Struggle',
         behavior: 'Browse Category Aisles',
         emotion: 'Neutral',
@@ -118,13 +118,13 @@ describe('Phase 2 Pipeline & Synthesis Tests', () => {
 
     // Marginal row sort: Habitual Replenisher (2) should be index 0
     expect(crossTab.rows[0]).toBe('Habitual Replenisher')
-    expect(crossTab.rows[1]).toBe('Occasion Shopper')
+    expect(crossTab.rows[1]).toBe('Impulse & Emergency Shopper')
 
     // Row-normalized pct calculation:
     // Habitual Replenisher has 2/2 of theme Basket Habit Lock-In -> 100%
     expect(crossTab.cells['Habitual Replenisher']['Basket Habit Lock-In'].pct).toBe(100)
-    // Occasion Shopper has 1/1 of theme Successful Category Trial -> 100%
-    expect(crossTab.cells['Occasion Shopper']['Successful Category Trial'].pct).toBe(100)
+    // Impulse & Emergency Shopper has 1/1 of theme Successful Category Trial ->100%
+    expect(crossTab.cells['Impulse & Emergency Shopper']['Successful Category Trial'].pct).toBe(100)
   });
 
   // --- 3. Opportunity Scoring & Validation ---

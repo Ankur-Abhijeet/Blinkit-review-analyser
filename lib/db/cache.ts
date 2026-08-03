@@ -1,17 +1,33 @@
 import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
-import { db, runMigrations } from './client'
+import { db, runMigrations, isServerless } from './client'
 import { ClassifiedReview } from '../types'
+import * as taxonomy from '../taxonomy'
 
 const CACHE_FILE = path.join(process.cwd(), 'data/classification-cache.json')
 
+/**
+ * The JSON cache file is a local-development convenience. Vercel's filesystem is
+ * read-only, so there the cache lives in memory (per warm instance) and the DB
+ * `classification_cache` table is the durable layer.
+ */
+let fileCacheWritable = !isServerless
+
 let memoryCache: Record<string, ClassifiedReview> | null = null
 
-function ensureCacheDirectory() {
-  const dir = path.dirname(CACHE_FILE)
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true })
+function ensureCacheDirectory(): boolean {
+  if (!fileCacheWritable) return false
+  try {
+    const dir = path.dirname(CACHE_FILE)
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true })
+    }
+    return true
+  } catch (err) {
+    console.warn('[CACHE] Cache directory is not writable, using memory + DB only:', err)
+    fileCacheWritable = false
+    return false
   }
 }
 
@@ -29,11 +45,13 @@ export function computeContentHash(text: string, source: string): string {
  */
 export function getTaxonomyHash(): string {
   try {
-    const taxonomyPath = path.join(process.cwd(), 'lib/taxonomy.ts')
-    if (fs.existsSync(taxonomyPath)) {
-      const content = fs.readFileSync(taxonomyPath, 'utf-8')
-      return crypto.createHash('sha256').update(content).digest('hex').slice(0, 12)
-    }
+    // Hash the exported label sets rather than the source file: the source tree
+    // is not on disk in a serverless bundle, and the labels are what actually
+    // invalidate cached classifications.
+    const labels = Object.entries(taxonomy)
+      .filter(([, value]) => Array.isArray(value) || typeof value === 'object')
+      .sort(([a], [b]) => a.localeCompare(b))
+    return crypto.createHash('sha256').update(JSON.stringify(labels)).digest('hex').slice(0, 12)
   } catch (err) {
     console.error('[CACHE] Error computing taxonomy hash:', err)
   }
@@ -47,7 +65,7 @@ function loadCacheFromFile(): Record<string, ClassifiedReview> {
 
   ensureCacheDirectory()
 
-  if (!fs.existsSync(CACHE_FILE)) {
+  if (!fileCacheWritable || !fs.existsSync(CACHE_FILE)) {
     memoryCache = {}
     return memoryCache
   }
@@ -65,11 +83,12 @@ function loadCacheFromFile(): Record<string, ClassifiedReview> {
 
 function saveCacheToFile() {
   if (memoryCache === null) return
-  ensureCacheDirectory()
+  if (!ensureCacheDirectory()) return
   try {
     fs.writeFileSync(CACHE_FILE, JSON.stringify(memoryCache, null, 2), 'utf-8')
   } catch (err) {
-    console.error('[CACHE] Failed to save classification cache file:', err)
+    console.warn('[CACHE] Cache file is not writable, using memory + DB only:', err)
+    fileCacheWritable = false
   }
 }
 

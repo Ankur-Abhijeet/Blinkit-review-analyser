@@ -170,7 +170,9 @@ function normalizeQuickCommerce(review: RawReview): RawReview {
 
 // ─── Registry ───────────────────────────────────────────────────────────────
 
-const NORMALIZER_REGISTRY: Record<string, SourceNormalizerFn> = {
+// Optional value type: lookups are by arbitrary source id, so a miss is expected
+// and the callers below branch on it.
+const NORMALIZER_REGISTRY: Record<string, SourceNormalizerFn | undefined> = {
   reddit: normalizeReddit,
   appstore: normalizeAppStore,
   playstore: normalizePlayStore,

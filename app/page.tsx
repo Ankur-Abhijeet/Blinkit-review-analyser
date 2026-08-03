@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { RawReview, ClassifiedReview } from '../lib/types'
+import { RawReview, ClassifiedReview, CurationStats } from '../lib/types'
 import { parseReviews } from '../lib/ingest/parse'
 import { estimateTokens } from '../lib/llm/limits'
 import { CurationEmpty } from '../components/CurationEmpty'
@@ -44,7 +44,7 @@ export default function Home() {
   const [fetchStats, setFetchStats] = useState<FetchStats | null>(null)
 
   // Curation Stats & Partial Data
-  const [curationStats, setCurationStats] = useState<{ totalInput?: number; uniqueRecords?: number; explorationRelevant?: number; noiseBreakdown?: Record<string, number> } | undefined>(undefined)
+  const [curationStats, setCurationStats] = useState<CurationStats | undefined>(undefined)
 
   // LLM Config
   const [provider, setProvider] = useState('groq')
@@ -519,7 +519,14 @@ export default function Home() {
         excluded_count: reviews.length - classifiedList.length,
         source_mix: sourceMix,
         fetch_params: { provider, model },
-        curation_stats: curationStats || { totalInput: reviews.length },
+        curation_stats: curationStats || {
+          loaded: reviews.length,
+          unique: reviews.length,
+          duplicatesRemoved: 0,
+          sentToClassification: classifiedList.length,
+          excluded: reviews.length - classifiedList.length,
+          excludedByCategory: {},
+        },
         aggregation,
         findings,
         executive_report: executiveReport,
@@ -1114,7 +1121,7 @@ export default function Home() {
                     {pipelineState === 'curating' ? (
                       <span className="text-[#006b5c] dark:text-[#55dbc4] animate-pulse">🔄 Filtering...</span>
                     ) : curationStats ? (
-                      <span className="text-emerald-600 dark:text-emerald-400">✓ {curationStats.explorationRelevant ?? reviews.length} Relevant</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">✓ {curationStats.sentToClassification ?? reviews.length} Relevant</span>
                     ) : (
                       <span className="text-zinc-400">⏳ Pending</span>
                     )}

@@ -1,43 +1,62 @@
 import { createClient, Client } from '@libsql/client'
-import fs from 'fs'
 import path from 'path'
+import { SCHEMA_STATEMENTS } from './schema'
 
-const url = process.env.TURSO_DATABASE_URL || ('file:' + path.join(process.cwd(), 'local.db'))
-const authToken = process.env.TURSO_AUTH_TOKEN
+/**
+ * On Vercel the filesystem is read-only, so a `file:` SQLite database cannot be
+ * used. Turso (TURSO_DATABASE_URL) is required in that environment; locally we
+ * fall back to ./local.db so `npm run dev` works with no configuration.
+ */
+export const isServerless = Boolean(process.env.VERCEL)
 
-export const db: Client = createClient({
-  url,
-  authToken,
+function resolveUrl(): string {
+  const remote = process.env.TURSO_DATABASE_URL
+  if (remote) return remote
+
+  if (isServerless) {
+    throw new Error(
+      'TURSO_DATABASE_URL is not set. A remote libSQL/Turso database is required ' +
+        'when running on Vercel — the serverless filesystem is read-only, so the ' +
+        'local.db fallback cannot be used. Set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN ' +
+        'in the project environment variables.'
+    )
+  }
+
+  return 'file:' + path.join(process.cwd(), 'local.db')
+}
+
+let client: Client | null = null
+
+/** Lazily constructed so a missing Turso URL fails per-request, not at import. */
+export function getDb(): Client {
+  if (!client) {
+    client = createClient({
+      url: resolveUrl(),
+      authToken: process.env.TURSO_AUTH_TOKEN,
+    })
+  }
+  return client
+}
+
+/**
+ * Proxy kept for backwards compatibility with `import { db } from './client'`.
+ * Defers client construction to first property access.
+ */
+export const db: Client = new Proxy({} as Client, {
+  get(_target, prop, receiver) {
+    const value = Reflect.get(getDb() as object, prop, receiver)
+    return typeof value === 'function' ? value.bind(getDb()) : value
+  },
 })
 
 let migrated = false
 
 export async function runMigrations() {
   if (migrated) return
-  
-  // For in-memory or local file SQLite, read schema.sql and execute
-  const schemaPath = path.join(process.cwd(), 'lib/db/schema.sql')
-  if (!fs.existsSync(schemaPath)) {
-    throw new Error(`Schema file not found at ${schemaPath}`)
-  }
-
-  const schema = fs.readFileSync(schemaPath, 'utf-8')
-  
-  // Strip SQL comments: both -- and /* ... */ blocks
-  const cleanSchema = schema
-    .replace(/--.*$/gm, '')
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-
-  // Split statements by semicolon
-  const statements = cleanSchema
-    .split(';')
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0)
 
   try {
-    for (const statement of statements) {
-      console.log('[DB] Executing migration statement:', statement)
-      await db.execute(statement)
+    for (const statement of SCHEMA_STATEMENTS) {
+      await getDb().execute(statement)
     }
     migrated = true
     console.log('[DB] Migrations completed successfully.')
