@@ -547,7 +547,18 @@ export default function Home() {
       })
 
       if (!saveRes.ok) {
-        throw new Error('Failed to persist run to database')
+        // Surface what the API actually said. A bare "failed to persist" hides the
+        // cause (invariant violation, DB unreachable, timeout) and makes the
+        // failure undiagnosable from the UI.
+        const detail = await saveRes
+          .json()
+          .then((body) => body?.error)
+          .catch(() => null)
+        throw new Error(
+          detail
+            ? `Failed to persist run to database: ${detail}`
+            : `Failed to persist run to database (HTTP ${saveRes.status} ${saveRes.statusText})`,
+        )
       }
 
       setProgressPct(100)

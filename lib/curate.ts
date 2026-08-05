@@ -267,7 +267,11 @@ export async function curateReviewsLlm(
   for (let idx = 0; idx < uniqueReviews.length; idx++) {
     const raw = uniqueReviews[idx]
     const normalizedText = normalizeText(raw.text)
-    const reviewId = raw.review_id || `rev_${idx + 1}`
+    // Derive the fallback id from content, not position. The caller curates in
+    // chunks, so `idx` restarts at 0 for every chunk — positional ids collided
+    // across chunks and the colliding reviews overwrote each other on save.
+    const reviewId =
+      raw.review_id || `rev_${createHash('sha256').update(normalizedText).digest('hex').slice(0, 12)}`
 
     if (!lengthFloor(normalizedText)) {
       const curated: CuratedReview = {

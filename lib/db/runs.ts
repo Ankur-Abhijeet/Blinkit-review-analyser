@@ -62,6 +62,22 @@ function placeholders(count: number): string {
   return Array.from({ length: count }, (_, i) => `$${i + 1}`).join(', ')
 }
 
+/**
+ * Rows per multi-row INSERT. Postgres caps a statement at 65535 parameters;
+ * at 27 columns that is ~2400 rows, so 500 leaves generous headroom while
+ * turning a 1200-review save into three round trips instead of 1200.
+ */
+const INSERT_CHUNK_ROWS = 500
+
+/** Builds `($1, …, $27), ($28, …, $54), …` for a multi-row INSERT. */
+function multiRowPlaceholders(rowCount: number, columnCount: number): string {
+  return Array.from({ length: rowCount }, (_, row) => {
+    const offset = row * columnCount
+    const cells = Array.from({ length: columnCount }, (_, col) => `$${offset + col + 1}`)
+    return `(${cells.join(', ')})`
+  }).join(', ')
+}
+
 /** Builds the `SET col = EXCLUDED.col` clause of an upsert, skipping the key. */
 function upsertAssignments(columns: string[], key: string): string {
   return columns
@@ -157,40 +173,51 @@ export async function saveRun(run: Run, reviews: ClassifiedReview[]): Promise<vo
       ],
     )
 
+    // Collapse by composite id first. Two reviews sharing a review_id would
+    // otherwise appear twice in one multi-row upsert, which Postgres rejects
+    // with "ON CONFLICT DO UPDATE command cannot affect row a second time".
+    const rowsById = new Map<string, unknown[]>()
     for (const r of reviews) {
+      const compositeId = `${stampedRun.id}::${r.review_id}`
+      rowsById.set(compositeId, [
+        compositeId,
+        stampedRun.id,
+        r.review_id || 'unknown_id',
+        r.source,
+        r.text,
+        r.rating !== undefined ? r.rating : null,
+        r.date || null,
+        r.city || null,
+        r.url || null,
+        r.exploration_relevant ? 1 : 0,
+        r.noise_category || null,
+        r.outcome || null,
+        r.user_goal || null,
+        r.research_relevant ? 1 : 0,
+        r.research_questions ? JSON.stringify(r.research_questions) : null,
+        r.evidence || null,
+        r.exploration_outcome || null,
+        r.theme || null,
+        r.barrier || null,
+        r.behavior || null,
+        r.emotion || null,
+        r.segment || null,
+        r.root_cause || null,
+        r.unmet_need || null,
+        r.mentioned_categories ? JSON.stringify(r.mentioned_categories) : null,
+        r.confidence !== undefined ? r.confidence : null,
+        r.classification_reasons ? JSON.stringify(r.classification_reasons) : null,
+      ])
+    }
+
+    const rows = [...rowsById.values()]
+    for (let i = 0; i < rows.length; i += INSERT_CHUNK_ROWS) {
+      const chunk = rows.slice(i, i + INSERT_CHUNK_ROWS)
       await q(
         `INSERT INTO run_reviews (${REVIEW_COLUMNS.join(', ')})
-         VALUES (${placeholders(REVIEW_COLUMNS.length)})
+         VALUES ${multiRowPlaceholders(chunk.length, REVIEW_COLUMNS.length)}
          ON CONFLICT (id) DO UPDATE SET ${upsertAssignments(REVIEW_COLUMNS, 'id')}`,
-        [
-          `${stampedRun.id}::${r.review_id}`,
-          stampedRun.id,
-          r.review_id || 'unknown_id',
-          r.source,
-          r.text,
-          r.rating !== undefined ? r.rating : null,
-          r.date || null,
-          r.city || null,
-          r.url || null,
-          r.exploration_relevant ? 1 : 0,
-          r.noise_category || null,
-          r.outcome || null,
-          r.user_goal || null,
-          r.research_relevant ? 1 : 0,
-          r.research_questions ? JSON.stringify(r.research_questions) : null,
-          r.evidence || null,
-          r.exploration_outcome || null,
-          r.theme || null,
-          r.barrier || null,
-          r.behavior || null,
-          r.emotion || null,
-          r.segment || null,
-          r.root_cause || null,
-          r.unmet_need || null,
-          r.mentioned_categories ? JSON.stringify(r.mentioned_categories) : null,
-          r.confidence !== undefined ? r.confidence : null,
-          r.classification_reasons ? JSON.stringify(r.classification_reasons) : null,
-        ],
+        chunk.flat(),
       )
     }
   })
