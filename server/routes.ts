@@ -136,17 +136,25 @@ export function registerRoutes(app: Express) {
       }
 
       let classified: ClassifiedReview[]
+      // Falling back to keyword heuristics keeps a run alive, but it produces
+      // labels the LLM never saw. Report it so the caller knows the results are
+      // degraded rather than silently trusting them.
+      let degradedReason: string | null = null
+
       try {
         console.log(`[API CLASSIFY] Live mode (${config.provider}). Classifying ${reviews.length} reviews.`)
         classified = await classifyBatchWithRetries(reviews, config)
       } catch (liveErr: unknown) {
-        console.warn('[API CLASSIFY] Live LLM provider error. Falling back to heuristic classifier:', liveErr)
+        degradedReason = liveErr instanceof Error ? liveErr.message : String(liveErr)
+        console.warn(
+          `[API CLASSIFY] ${config.provider} call failed, falling back to heuristic classifier: ${degradedReason}`
+        )
         classified = reviews.map((r) => mockClassifyReview(r))
       }
 
       classified.forEach((item) => setCache(computeCleanTextHash(item.text), item))
 
-      res.json({ classified })
+      res.json({ classified, degraded: degradedReason !== null, degradedReason })
     })
   )
 

@@ -80,6 +80,9 @@ export default function Home() {
   const [progressPct, setProgressPct] = useState(0)
   const [cacheHitCount, setCacheHitCount] = useState(0)
   const [error, setError] = useState('')
+  // Set when the API had to classify with keyword heuristics instead of the LLM.
+  // The run still completes, so this warns rather than halting.
+  const [degradedWarning, setDegradedWarning] = useState('')
 
   // Load source configs and LLM config on mount
   useEffect(() => {
@@ -477,8 +480,15 @@ export default function Home() {
             throw new Error(errBody.error || `Classification chunk #${currentChunkNum} failed`)
           }
 
-          const { classified: chunkClassified } = await classifyRes.json()
+          const { classified: chunkClassified, degraded, degradedReason } = await classifyRes.json()
           classifiedList = [...classifiedList, ...chunkClassified]
+
+          if (degraded) {
+            setDegradedWarning(
+              `The AI classifier is unavailable, so reviews are being labelled by keyword rules instead. ` +
+                `Results will be less accurate. Reason: ${degradedReason || 'unknown'}`,
+            )
+          }
 
           if (i + selectedBatchSize < totalMissing) {
             await new Promise((r) => setTimeout(r, selectedDelay))
@@ -605,6 +615,12 @@ export default function Home() {
       {error && (
         <div className="p-4 rounded-xl border border-red-200 bg-red-50 text-red-800 text-sm">
           ⚠️ {error}
+        </div>
+      )}
+
+      {degradedWarning && (
+        <div className="p-4 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm">
+          ⚠️ {degradedWarning}
         </div>
       )}
 
