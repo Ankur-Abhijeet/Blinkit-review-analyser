@@ -64,6 +64,12 @@ automatically. Schema migrations run on the first request that hits the database
 > `DATABASE_URL`; the schema rebuilds itself, but stored runs are gone. Upgrade
 > the database to a paid tier if the history needs to survive.
 
+**Put the database in the same region as the web service.** Render offers two
+connection strings, and the Internal one — a bare `dpg-xxxx-a` hostname — only
+resolves from a Render service in that same region. Cross-region, or from your
+laptop, it fails as `getaddrinfo ENOTFOUND dpg-xxxx-a`. Use the External URL
+(the long `.render.com` form) when connecting from outside Render.
+
 ### 2. API — Render
 
 Create a **Web Service** from this repo. [render.yaml](render.yaml) declares the

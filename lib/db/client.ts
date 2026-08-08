@@ -34,6 +34,34 @@ type Driver = {
 
 let driverPromise: Promise<Driver> | null = null
 
+/**
+ * Render hands out two connection strings. The internal one has a bare hostname
+ * (`dpg-xxxx-a`) that only resolves from inside the same Render region; the
+ * external one is fully qualified (`dpg-xxxx-a.<region>-postgres.render.com`).
+ * Using the internal host from a laptop, or from a service in another region,
+ * fails as a DNS lookup — an error that says nothing about the real mistake.
+ */
+function explainConnectionError(err: unknown): unknown {
+  const e = err as { code?: string; hostname?: string; message?: string }
+  if (e?.code !== 'ENOTFOUND') return err
+
+  const host = e.hostname || 'the database host'
+  const looksInternal = /^dpg-[a-z0-9]+-a$/i.test(host)
+
+  if (!looksInternal) {
+    return new Error(
+      `Cannot resolve database host "${host}". Check DATABASE_URL is correct and the database still exists.`
+    )
+  }
+
+  return new Error(
+    `Cannot resolve "${host}" — that is Render's INTERNAL database hostname, which only ` +
+      `resolves from a Render service in the SAME region as the database. Either move the ` +
+      `service and database into one region, or switch DATABASE_URL to the External Database ` +
+      `URL (the long ".render.com" form) if you are connecting from outside Render.`
+  )
+}
+
 async function createPgDriver(): Promise<Driver> {
   const { Pool } = await import('pg')
 
@@ -51,11 +79,20 @@ async function createPgDriver(): Promise<Driver> {
 
   return {
     async query(sql, params) {
-      const res = await pool.query(sql, params as unknown[])
-      return { rows: res.rows as Row[] }
+      try {
+        const res = await pool.query(sql, params as unknown[])
+        return { rows: res.rows as Row[] }
+      } catch (err) {
+        throw explainConnectionError(err)
+      }
     },
     async transaction(work) {
-      const client = await pool.connect()
+      let client
+      try {
+        client = await pool.connect()
+      } catch (err) {
+        throw explainConnectionError(err)
+      }
       try {
         await client.query('BEGIN')
         await work(async (sql, params) => {
@@ -64,8 +101,9 @@ async function createPgDriver(): Promise<Driver> {
         })
         await client.query('COMMIT')
       } catch (err) {
-        await client.query('ROLLBACK')
-        throw err
+        // Rolling back a connection that already died would mask the real cause.
+        await client.query('ROLLBACK').catch(() => {})
+        throw explainConnectionError(err)
       } finally {
         client.release()
       }
